@@ -1,12 +1,12 @@
-<h1>Fruits</h1>
-<div class="row">
-<div *ngFor="let fruit of listeDeFruits" style="text-align: center">
+<h1 style="text-align: center">Fruits</h1>
+<div class="row justify-content-center">
+<div *ngFor="let fruit of listeDeFruits" style="text-align: center" >
     <div class="col-sm">
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="{{fruit.imageUrl}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"> {{fruit.nom}}</h5>
-        <p class="card-text"> disponible en  {{fruit.saison}}</p>
+        <p class="card-text"> Pleine saison :   {{fruit.saison}}</p>
       </div>
     </div>
   </div>
