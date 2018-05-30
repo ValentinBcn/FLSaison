@@ -1,0 +1,16 @@
+<h1>legumes</h1>
+<div class="row">
+  
+  <div *ngFor="let legume of listdeLegumes" style="text-align: center">
+    <div class="col-sm">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{legume.imageUrl}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"> {{legume.nom}}</h5>
+        <p class="card-text"> disponible en  {{legume.saison}}</p>
+      </div>
+    </div>
+  </div>
+    
+</div>
+</div>

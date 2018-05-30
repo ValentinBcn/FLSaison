@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiFruitService } from '../../services/api-fruit.service';
+import { ApiConnectService } from '../../services/apiConnectservice';
 import { singleFruit} from '../../models/singleFruit';
 import { Response } from '@angular/http';
 @Component({
   selector: 'app-list-fruits',
   templateUrl: './list-fruits.component.html',
   styleUrls: ['./list-fruits.component.css'],
-  providers: [ApiFruitService]
+  providers: [ApiConnectService]
 })
 export class ListFruitsComponent implements OnInit {
 
   listeDeFruits : singleFruit[] = [];
   tableaudebase = [];
-  constructor(private apiFruit: ApiFruitService) { 
+  constructor(private apiConnect: ApiConnectService) { 
    
   }
 
@@ -21,7 +21,7 @@ export class ListFruitsComponent implements OnInit {
   }
 
   onGetFruits(){
-    this.apiFruit.getInfoFruit()
+    this.apiConnect.getInfoFruit()
     .subscribe(
      // (res)=>console.log(res),
       (res2: Response)=>{
