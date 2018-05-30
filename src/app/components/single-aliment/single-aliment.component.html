@@ -1,20 +1,25 @@
-<div class="row justify-content-center">
-  <div class="card" style="width: 25rem;">
-    <img class="card-img-top" src="{{alimentImgUrl}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"> {{alimentName}}</h5>
-      <p class="card-text"> Pleine saison :  {{alimentSaison}}</p>
-      <div style="text-align: center">
+
+  <div class="row justify-content-center">
+  
+
+    <div class="card" style="width: 25rem;">
+      <img class="card-img-top" src="{{alimentImgUrl}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"> {{alimentName}}</h5>
+        <p class="card-text"> Pleine saison :  {{alimentSaison}}</p>
+        <div style="text-align: center">
 
 
-      
-      <ng-container *ngIf="deSaison; else notFirst">
-       <h3> c'est de saison !  </h3> 
-      </ng-container>
-      <ng-template #notFirst>
-       <h3> pas de saison </h3> 
-      </ng-template>
-    </div>
-    </div>
-</div>
+        
+        <ng-container *ngIf="deSaison; else notFirst">
+        <h3> c'est de saison !  </h3> 
+        </ng-container>
+        <ng-template #notFirst>
+        <h3> pas de saison </h3> 
+        </ng-template>
+      </div>
+      </div>
+  </div>
+
+
     
