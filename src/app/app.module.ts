@@ -8,16 +8,23 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { HeaderComponent } from './components/header/header.component';
 
+import { ListFruitsComponent } from './components/list-fruits/list-fruits.component';
+import { HttpModule } from '@angular/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListFruitsComponent
   ],
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    
+    HttpModule 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,HeaderComponent,ListFruitsComponent]
 })
 export class AppModule { }
