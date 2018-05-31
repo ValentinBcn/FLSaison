@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { singleLegume } from '../../models/singleLegume';
-import { ApiConnectService } from '../../services/apiConnectservice';
+import { alimentService } from '../../services/aliments.service';
 import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-list-legumes',
   templateUrl: './list-legumes.component.html',
-  styleUrls: ['./list-legumes.component.css'],
-  providers:[ApiConnectService]
+  styleUrls: ['./list-legumes.component.css']
 })
 export class ListLegumesComponent implements OnInit {
   tableauDeBase = [];
   listdeLegumes : singleLegume[] = [];
-  constructor(private apiConnect: ApiConnectService) { }
+  constructor(private apiConnect: alimentService) { }
 
   ngOnInit() {
     this.getInfosLegume();
@@ -29,5 +28,10 @@ export class ListLegumesComponent implements OnInit {
       }
     )
   }
+
+  myFunction(value){
+    this.apiConnect.seekLegume(value);
+    
+   }
 
 }

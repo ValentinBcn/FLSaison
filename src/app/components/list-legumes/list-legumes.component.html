@@ -7,8 +7,9 @@
       <img class="card-img-top" src="{{legume.imageUrl}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"> {{legume.nom}}</h5>
-        <p class="card-text"> Pleine saison :  {{legume.saison}}</p>
+        <p class="card-text" > Pleine saison :  {{legume.saison}}</p>
       </div>
+      <a [routerLink]=" ['/legumes',legume.nom] "><button class="btn btn-primary" (click)="myFunction(legume.nom)" >Voir plus</button></a>
     </div>
   </div>
     
