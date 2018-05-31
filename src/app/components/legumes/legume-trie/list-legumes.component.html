@@ -1,0 +1,21 @@
+<h1 style="text-align: center;margin-top:80px"> {{nombreDeLegumes}} Légumes de saison</h1>
+<br>
+<br>
+<div class="row justify-content-center">
+  <div *ngFor="let legume of tableauLegumeTrie;let i = index" style="text-align: center">
+    <div *ngIf="i<nombreDeLegumes">
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{legume.imageUrl}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{legume.nom}}</h5>
+            <p class="card-text"> Pleine saison : {{legume.saison}}</p>
+          </div>
+          <a [routerLink]=" ['/legumes',legume.nom] ">
+            <button class="btn btn-primary" (click)="myFunction(legume.nom)">Voir plus</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

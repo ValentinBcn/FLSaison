@@ -1,0 +1,17 @@
+<h1 style="text-align: center">legumes de saison</h1>
+<div class="row justify-content-center">
+  <div *ngFor=" let legume of tableauTrie;  let i=index">
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{legume.imageUrl}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"> {{legume.nom}}</h5>
+          <p class="card-text"> Pleine saison : {{legume.saison}}</p>
+          <a [routerLink]=" ['/legumes',legume.nom] ">
+            <button class="btn btn-primary" (click)="myFunction(legume.nom)">Voir plus</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "name": "Fruits et Légumes",
+  "short_name": "FLPWA",
+  "description": "Manger 5 fruits et légumes par jour !",  
+  "icons": [{
+      "src": "assets/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#343A40"
+}

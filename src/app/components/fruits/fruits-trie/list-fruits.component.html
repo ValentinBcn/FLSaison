@@ -1,0 +1,18 @@
+<h1 style="text-align: center"> {{nombreDeFruits}} Fruits de saison</h1>
+<div class="row justify-content-center">
+  <div *ngFor=" let fruit of tableauTrie;  let i=index">
+    <div *ngIf="i<nombreDeFruits">
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{fruit.imageUrl}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{fruit.nom}}</h5>
+            <p class="card-text"> Pleine saison :   {{fruit.saison}}</p>
+            <a [routerLink]=" ['/fruits',fruit.nom] "><button class="btn btn-primary" (click)="myFunction(fruit.nom)" >Voir plus</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

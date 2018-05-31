@@ -8,36 +8,46 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { HeaderComponent } from './components/header/header.component';
 
-import { ListFruitsComponent } from './components/list-fruits/list-fruits.component';
+import { ListFruitsTrieComponent } from './components/fruits/fruits-trie/list-fruits.component';
 import { HttpModule } from '@angular/http';
-import { ListLegumesComponent } from './components/list-legumes/list-legumes.component';
+import { ListLegumesTrieComponent } from './components/legumes/legume-trie/list-legumes.component';
 import { SingleAlimentComponent } from './components/single-aliment/single-aliment.component';
 
-import {Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { ListTousFruitsComponent } from './components/fruits/list-tous-fruits/list-tous-fruits.component';
+import { ListTousLegumesComponent } from './components/legumes/list-tous-legumes/list-tous-legumes.component';
+import { FruitsDeSaisonComponent } from './components/fruits/fruits-de-saison/fruits-de-saison.component';
+import { legumesDeSaisonComponent } from './components/legumes/legumes-de-saison/legumes-de-saison.component';
 
 const appRoutes: Routes = [
-  { path: 'fruits', component: ListFruitsComponent },
-  { path: 'legumes', component: ListLegumesComponent},
-  { path: 'fruits/:name', component: SingleAlimentComponent},
-  { path: 'legumes/:name', component: SingleAlimentComponent},
-  { path: '',component:HomeComponent}
+  { path: 'fruits', component: ListTousFruitsComponent },
+  { path: 'fruits-de-saison', component: FruitsDeSaisonComponent },
+  { path: 'legumes-de-saison', component: legumesDeSaisonComponent },
+  { path: 'legumes', component: ListTousLegumesComponent },
+  { path: 'fruits/:name', component: SingleAlimentComponent },
+  { path: 'legumes/:name', component: SingleAlimentComponent },
+  { path: '', component: HomeComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ListFruitsComponent,
-    ListLegumesComponent,
+    ListFruitsTrieComponent,
+    ListLegumesTrieComponent,
     SingleAlimentComponent,
-    HomeComponent
+    HomeComponent,
+    ListTousFruitsComponent,
+    ListTousLegumesComponent,
+    FruitsDeSaisonComponent,
+    legumesDeSaisonComponent
   ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     RouterModule.forRoot(appRoutes),
-    HttpModule 
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
