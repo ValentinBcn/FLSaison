@@ -1,0 +1,33 @@
+.main{
+    background-size: 1000px;
+    height: 500px;
+    background-image: url("../../../assets/bgHome.png");
+    padding-top: 150px;
+    text-align: center;
+}
+
+.buttons{
+    text-align: center;
+    
+}
+
+.btn-fruits{
+    background-color: #571845;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 25px;
+    margin-top: 50px;
+}
+
+.btn-legumes{
+    background-color: white;
+    color: #571845;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 25px;
+   
+}

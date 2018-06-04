@@ -19,6 +19,7 @@ import { ListTousFruitsComponent } from './components/fruits/list-tous-fruits/li
 import { ListTousLegumesComponent } from './components/legumes/list-tous-legumes/list-tous-legumes.component';
 import { FruitsDeSaisonComponent } from './components/fruits/fruits-de-saison/fruits-de-saison.component';
 import { legumesDeSaisonComponent } from './components/legumes/legumes-de-saison/legumes-de-saison.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   { path: 'fruits', component: ListTousFruitsComponent },
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     ListTousFruitsComponent,
     ListTousLegumesComponent,
     FruitsDeSaisonComponent,
-    legumesDeSaisonComponent
+    legumesDeSaisonComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

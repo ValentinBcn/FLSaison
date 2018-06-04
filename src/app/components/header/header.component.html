@@ -1,29 +1,46 @@
-<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Fruits Légumes</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div id="navbarSupportedContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
-    <ul class="navbar-nav">
-      <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
+<!-- <nav id="mainNavbar" class="navbar  navbar-dark bg-dark fixed-bottom">
+  <ul>
+    <li class="navbar-nav">
+
+      <div class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
         <a class="nav-link" [routerLink]="['/']">Accueil
           <span class="sr-only">(current)</span>
         </a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
+      </div>
+      <div class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/fruits']">Fruits</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/fruits-de-saison']">Fruits de Saison</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/legumes']">Légumes</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/legumes-de-saison']">Légumes de Saison </a>
-      </li>
+      </div>
 
-    </ul>
+      <div class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/legumes']">Légumes</a>
+      </div>
+  
+
+    </li>
+  </ul>
+</nav> -->
+<div class="row fixed-bottom">
+    <div class="col-4 nav-item">
+      <a class="nav-link" [routerLink]="['/']"  style="color:white; text-align: center">
+      <img src="../../../assets/homeIcon.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
+       ACCUEIL
+          <span class="sr-only">(current)</span>
+        </a>
+    </div>
+    <div class="col-4 nav-item">
+        <a class="nav-link" [routerLink]="['/fruits']"  style="color:white;text-align: center">
+        <img src="../../../assets/fruitPage.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
+        <div class="nav-item" routerLinkActive="active">
+            FRUITS
+          </div>
+          </a>
+    </div>
+    <div class="col-4 nav-item">
+      <a class="nav-link" [routerLink]="['/legumes']" style="color:white;text-align: center">
+        <img src="../../../assets/LegumePage.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
+        <div class="nav-item" routerLinkActive="active">
+            LEGUMES
+          </div>
+      </a>
+    </div>
   </div>
-</nav>
