@@ -10,5 +10,12 @@
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#343A40"
+  "theme_color": "#343A40",
+  
+  "gcm_sender_id": "482941778795",
+  "gcm_sender_id_comment": "Do not change the GCM Sender ID"
+
 }
+
+
+  
