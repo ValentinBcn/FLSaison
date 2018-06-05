@@ -1,17 +1,26 @@
-<h1 style="text-align: center">Fruits de saison</h1>
-<div class="row justify-content-center">
-  <div *ngFor=" let fruit of tableauTrie;  let i=index">
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{fruit.imageUrl}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"> {{fruit.nom}}</h5>
-          <p class="card-text"> Pleine saison : {{fruit.saison}}</p>
+
+<div class="main">
+
+    <a class="nav-link" [routerLink]="['/fruits']">
+<button style="text-align:center" class="btn btn-primary custom-btn"> AFFICHER TOUS LES FRUITS </button>
+</a>
+<h3 style="text-align: center"> Fruits de saison </h3>
+<div class="row justify-content-center elmt2">
+  
+<div *ngFor="let fruit of tableauTrie" style="text-align: center" class="col-6 elmt3" >
+
+      <div class="card elmtSingle " >
           <a [routerLink]=" ['/fruits',fruit.nom] ">
-            <button class="btn btn-primary" (click)="myFunction(fruit.nom)">Voir plus</button>
-          </a>
+          <img class="card-img-top" src="{{fruit.imageUrl}}" alt="Card image cap" style="width:70%">
+        </a>
+          <div class="card-body">
+           <h5 class="card-title titre" style="font-size: 4vw" style="text-align: left"> {{fruit.nom}}</h5>
+        
         </div>
       </div>
-    </div>
-  </div>
+    
+    
+</div>
+</div>
+
 </div>

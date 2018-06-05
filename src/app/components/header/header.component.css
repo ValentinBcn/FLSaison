@@ -1,10 +1,43 @@
 .row{
-    padding-top: 15px;
+    padding-top: 25px;
     background: #f37c5a; /* Old browsers */
     background: -moz-linear-gradient(left, #f37c5a 0%, #ed5063 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(left, #f37c5a 0%,#ed5063 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, #f37c5a 0%,#ed5063 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f37c5a', endColorstr='#ed5063',GradientType=1 );
-    color: white;
     font-size: 10px;
+}
+a{
+    color:white;
+}
+
+
+
+.square1{
+    background-color: white;
+    width: 60%;
+    height: 6px;
+    margin-top: -25px;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+.square2{
+    background-color: white;
+    width: 60%;
+    height: 6px;
+    margin-top: -25px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.square3{
+    background-color: white;
+    width: 60%;
+    height: 6px;
+    margin-top: -25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }

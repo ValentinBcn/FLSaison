@@ -17,15 +17,13 @@ export class SingleAlimentComponent implements OnInit {
   public variabel;
   month: string;
   tableauDeValeur = [];
-  deSaison: boolean = true;
+  deSaison: boolean;
  // value = "banane";
   constructor(private route: ActivatedRoute, private api: alimentService, private apiRecherche: recherche, private http: Http) {
 
-    console.log("constructeur du singleAliment");
-    console.log("la route est 0", this.route.snapshot.params['name']);
+   console.log("c'est de saison", this.deSaison);
     //var numero = this.api.seekAliment(this.route.snapshot.params['name'])
-    console.log('ca charrge')
-
+  
    // var tableaudedonnee = this.api.seekAliment(this.route.snapshot.params['name']);
    // console.log(tableaudedonnee)
     var tableauFruits = [];
@@ -41,6 +39,7 @@ export class SingleAlimentComponent implements OnInit {
             this.alimentName = this.api.seekAliment(this.route.snapshot.params['name'])[0]
             this.alimentImgUrl = this.api.seekAliment(this.route.snapshot.params['name'])[1]
             this.alimentSaison = this.api.seekAliment(this.route.snapshot.params['name'])[2]
+            this.comparerDates(this.getDate(),this.alimentSaison)
           }
         )
       }
@@ -60,6 +59,8 @@ export class SingleAlimentComponent implements OnInit {
     console.log("ça a interet de marcher!",this.variabel)
     this.getDate();
     //console.log("alors c'est", typeof(this.variabel));
+    
+   // this.comparerDates(this.getDate(),this.alimentSaison);
   }
 
 
@@ -71,7 +72,6 @@ export class SingleAlimentComponent implements OnInit {
     var ladate = new Date()
     ladate.getMonth() + 1
     var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
-
     this.month = tab_mois[ladate.getMonth()];
     return (tab_mois[ladate.getMonth()])
   }

@@ -21,25 +21,28 @@
 </nav> -->
 <div class="row fixed-bottom">
     <div class="col-4 nav-item">
-      <a class="nav-link" [routerLink]="['/']"  style="color:white; text-align: center">
+      <div class="square1">  </div>
+      <a class="nav-link home" [routerLink]="['/']"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style=" text-align: center">
       <img src="../../../assets/homeIcon.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
-       ACCUEIL
+       <b> ACCUEIL</b> 
           <span class="sr-only">(current)</span>
         </a>
     </div>
     <div class="col-4 nav-item">
-        <a class="nav-link" [routerLink]="['/fruits']"  style="color:white;text-align: center">
+        <div class="square2">  </div>
+              <a class="nav-link fruits" [routerLink]="['/fruits']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style="text-align: center">
         <img src="../../../assets/fruitPage.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
-        <div class="nav-item" routerLinkActive="active">
-            FRUITS
+        <div class="nav-item" >
+          <b>  FRUITS </b> 
           </div>
           </a>
     </div>
     <div class="col-4 nav-item">
-      <a class="nav-link" [routerLink]="['/legumes']" style="color:white;text-align: center">
+        <div class="square3">  </div>
+      <a class="nav-link legumes" [routerLink]="['/legumes']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style="text-align: center">
         <img src="../../../assets/LegumePage.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
-        <div class="nav-item" routerLinkActive="active">
-            LEGUMES
+        <div class="nav-item">
+           <b> LEGUMES</b> 
           </div>
       </a>
     </div>

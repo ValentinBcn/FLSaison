@@ -1,15 +1,16 @@
-<h1 style="text-align: center">legumes de saison</h1>
-<div class="row justify-content-center">
-  <div *ngFor=" let legume of tableauTrie;  let i=index">
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{legume.imageUrl}}" alt="Card image cap">
+<div class="main">
+  <a class="nav-link" [routerLink]="['/legume']">
+    <button style="text-align:center" class="btn btn-primary custom-btn"> AFFICHER TOUS LES PRODUITS </button>
+  </a>
+  <h3 style="text-align: center"> Légumes de saison</h3>
+  <div class="row justify-content-center elmt2">
+    <div *ngFor="let legume of tableauTrie" style="text-align: center" class="col-6 elmt3">
+      <div class="card elmtSingle ">
+        <a [routerLink]=" ['/legumes',legume.nom] ">
+          <img class="card-img-top" src="{{legume.imageUrl}}" alt="Card image cap" style="width:70%">
+        </a>
         <div class="card-body">
-          <h5 class="card-title"> {{legume.nom}}</h5>
-          <p class="card-text"> Pleine saison : {{legume.saison}}</p>
-          <a [routerLink]=" ['/legumes',legume.nom] ">
-            <button class="btn btn-primary" (click)="myFunction(legume.nom)">Voir plus</button>
-          </a>
+          <h5 class="card-title titre" style="font-size: 4vw" style="text-align: left"> {{legume.nom}}</h5>
         </div>
       </div>
     </div>
