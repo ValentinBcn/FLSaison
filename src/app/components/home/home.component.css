@@ -4,7 +4,8 @@
 }
 
 .main{
-    background-size: 1000px;
+    background-size: cover;
+    background-repeat: no-repeat;
     height:90vh; 
     background-image: url("../../../assets/bgHome.png");
     
@@ -25,7 +26,7 @@
     padding-right: 40px;    
     border-radius: 25px;
     border: solid 0px white;
-    margin-top: 18%;
+    margin-top: 6%;
 }
 
 .btn-legumes{
@@ -54,7 +55,7 @@
 }
 
 .logoHomepage{
-    width: 16%;
+    width: 40%;
     margin-top: 20%;
 }
 

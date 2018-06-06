@@ -30,7 +30,7 @@
     "name": "tasks-users-api",
     "urls": ["https://pwa2.marge-labo.com/wp-json/wp/v2/fruit","https://pwa2.marge-labo.com/wp-json/wp/v2/legume"],
     "cacheConfig": {
-      "strategy": "freshness",
+      "strategy": "performance",
       "maxSize": 20,
       "maxAge": "1h",
       "timeout": "5s"

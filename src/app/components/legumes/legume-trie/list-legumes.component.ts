@@ -32,7 +32,6 @@ export class ListLegumesTrieComponent implements OnInit {
           for (var u = 0; u < this.tableauDeBase[i].acf.saison.length; u++) {
             if (this.tableauDeBase[i].acf.saison[u] === this.month) {
               this.tableauLegumeTrie.push(new singleLegume(this.tableauDeBase[i].title.rendered, this.tableauDeBase[i].acf.photo, this.tableauDeBase[i].acf.saison))
-              console.log("un de plus");
             }
           }
         }
@@ -52,7 +51,6 @@ export class ListLegumesTrieComponent implements OnInit {
     var ladate = new Date()
     ladate.getMonth() + 1
     var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
-    console.log("mois actuel", tab_mois[ladate.getMonth()]);
     this.month = tab_mois[ladate.getMonth()];
     return (tab_mois[ladate.getMonth()])
   }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { alimentService } from '../../services/aliments.service';
-import { recherche } from '../../services/recherche.service';
 import { Http, Response } from '@angular/http';
 @Component({
   selector: 'app-single-aliment',
@@ -18,56 +17,43 @@ export class SingleAlimentComponent implements OnInit {
   month: string;
   tableauDeValeur = [];
   deSaison: boolean;
- // value = "banane";
-  constructor(private route: ActivatedRoute, private api: alimentService, private apiRecherche: recherche, private http: Http) {
 
-   console.log("c'est de saison", this.deSaison);
-    //var numero = this.api.seekAliment(this.route.snapshot.params['name'])
-  
-   // var tableaudedonnee = this.api.seekAliment(this.route.snapshot.params['name']);
-   // console.log(tableaudedonnee)
+  realsDates = [];
+  resultComparaison = [];
+
+  calendarArray = [];
+
+  constructor(private route: ActivatedRoute, private api: alimentService, private http: Http) {
     var tableauFruits = [];
     var tableauLegume = [];
-    //var tableauTotal = [];
+
     this.api.getInfoFruit().subscribe(
       (res1: Response) => {
-      //  tableauFruits = res1.json()
         this.api.getInfoLegume().subscribe(
           (res2: Response) => {
-           // tableauLegume = res2.json();
-          //  console.log('et la', this.api.seekAliment(this.route.snapshot.params['name']))
             this.alimentName = this.api.seekAliment(this.route.snapshot.params['name'])[0]
             this.alimentImgUrl = this.api.seekAliment(this.route.snapshot.params['name'])[1]
             this.alimentSaison = this.api.seekAliment(this.route.snapshot.params['name'])[2]
-            this.comparerDates(this.getDate(),this.alimentSaison)
+
+            this.comparerDates(this.getDate(), this.alimentSaison)
+            this.setRealDates();
+           
+            this.setCalendarArray();
+            this.comparaison();
+          
           }
         )
       }
-
     )
-
-    //this.api.getInfoFruit().map(res => res.json()).subscribe(res => this.variabel = res)
-
     this.api.getDonnees().then(data => {
-      console.log(data);
       this.variabel = data;
-     
-  //do here what you want
-
     })
-    
-    console.log("ça a interet de marcher!",this.variabel)
+
     this.getDate();
-    //console.log("alors c'est", typeof(this.variabel));
-    
-   // this.comparerDates(this.getDate(),this.alimentSaison);
   }
 
+  ngOnInit() {};
 
-
-  ngOnInit() {
-
-  };
   getDate() {
     var ladate = new Date()
     ladate.getMonth() + 1
@@ -76,8 +62,24 @@ export class SingleAlimentComponent implements OnInit {
     return (tab_mois[ladate.getMonth()])
   }
 
-  comparerDates(actuell: string, lesMois: string[]) {
+  setCalendarArray(){
+    var ladate = new Date();
+    var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+    this.month = tab_mois[ladate.getMonth()];
+    for(var i=-1;i<2;i++){
+      this.calendarArray.push({mois:tab_mois[ladate.getMonth()+i], value:false})
+    }
+  }
 
+  setRealDates(){
+    var ladate = new Date()
+    var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+    for(let i=-1; i<2;i++){
+      this.realsDates.push(tab_mois[ladate.getMonth() + i]);
+    }   
+  }
+
+  comparerDates(actuell: string, lesMois: string[]) {
     for (let u = 0; u < lesMois.length; u++) {
       if (actuell === lesMois[u]) {
         this.deSaison = true;
@@ -89,8 +91,32 @@ export class SingleAlimentComponent implements OnInit {
     }
   }
 
+  comparaison(){
+    var ladate = new Date()
+    var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+    //modifie le calendar array, si un mois du calendar Array est un mois de saison alors ce mois a une valeur=true
+    for(var u=0;u<this.calendarArray.length;u++){
+      for(var a=0;a<this.alimentSaison.length;a++){
+        if(this.alimentSaison[a] === this.calendarArray[u].mois){
+          this.calendarArray[u].value = true;
+        }
+      }
+    }
+  }
 
+   
+    
+    
 
+    
+  
 
-
+  comparerDeuxMois(premiere:string,deuxieme:string){
+    if(premiere === deuxieme){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 }

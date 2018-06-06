@@ -12,7 +12,6 @@ import 'rxjs/add/operator/filter';
 export class HeaderComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) {
-    console.log('cestsfvnseiufbe',this.route.snapshot.params['name']);
 
     this.router.events
     .filter(event => event instanceof NavigationStart)
@@ -28,15 +27,6 @@ export class HeaderComponent implements OnInit {
       }   
 
 
-      if(e.url === '/fruits-de-saison'){
-        $('.square1').css('visibility','hidden');
-        $('.square1').css('display','');
-        $('.square3').css('visibility','hidden');
-        $('.square3').css('display','');
-        $('.square2').css('visibility','');
-        $('.square2').css('display','block');
-      }
-
       else if(e.url.indexOf('/legumes') > -1){
          $('.square3').css('visibility','');
          $('.square3').css('display','block');
@@ -46,14 +36,6 @@ export class HeaderComponent implements OnInit {
          $('.square1').css('display','');
       }
 
-      else if(e.url === '/legumes-de-saison'){
-        $('.square3').css('visibility','');
-        $('.square3').css('display','block');
-        $('.square2').css('visibility','hidden');
-        $('.square2').css('display','');
-        $('.square1').css('visibility','hidden');
-        $('.square1').css('display','');
-     }
 
       else if(e.url === '/'){
         $('.square1').css('visibility','');

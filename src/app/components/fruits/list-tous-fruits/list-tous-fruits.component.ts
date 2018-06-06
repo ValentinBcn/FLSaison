@@ -26,7 +26,6 @@ export class ListTousFruitsComponent implements OnInit {
       .subscribe(
         (res2: Response) => {
           this.tableaudebase = res2.json();
-          console.log(this.tableaudebase.length);
           for (let i = 0; i < this.tableaudebase.length; i++) {
             this.listeDeFruits.push(new singleFruit(this.tableaudebase[i].title.rendered, this.tableaudebase[i].acf.photo, this.tableaudebase[i].acf.saison))
           }
