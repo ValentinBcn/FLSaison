@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { alimentService } from '../../services/aliments.service';
 import { Http, Response } from '@angular/http';
 @Component({
@@ -21,11 +21,17 @@ export class SingleAlimentComponent implements OnInit {
   realsDates = [];
   resultComparaison = [];
 
+  laRoute: string;
+
   calendarArray = [];
 
   constructor(private route: ActivatedRoute, private api: alimentService, private http: Http) {
+  
+    
+    
     var tableauFruits = [];
     var tableauLegume = [];
+  
 
     this.api.getInfoFruit().subscribe(
       (res1: Response) => {
@@ -50,9 +56,13 @@ export class SingleAlimentComponent implements OnInit {
     })
 
     this.getDate();
+
   }
 
-  ngOnInit() {};
+  ngOnInit() {
+  
+    
+  };
 
   getDate() {
     var ladate = new Date()
@@ -62,6 +72,10 @@ export class SingleAlimentComponent implements OnInit {
     return (tab_mois[ladate.getMonth()])
   }
 
+  goBack(){
+    window.history.back();
+  }
+  
   setCalendarArray(){
     var ladate = new Date();
     var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");

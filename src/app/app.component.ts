@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { alimentService } from './services/aliments.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,13 @@ import { alimentService } from './services/aliments.service';
   styleUrls: ['./app.component.css'],
   providers:[alimentService]
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
+
+
+  constructor() {}
+
+  ngOnInit() {
+
+  }
+  
 }

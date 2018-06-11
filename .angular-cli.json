@@ -10,7 +10,8 @@
       "assets": [
         "assets",
         "favicon2.ico",
-        "manifest.json"
+        "manifest.json",
+        ".htaccess"
       ],
       "index": "index.html",
       "main": "main.ts",

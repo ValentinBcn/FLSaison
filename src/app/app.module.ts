@@ -20,12 +20,17 @@ import { ListTousLegumesComponent } from './components/legumes/list-tous-legumes
 import { FruitsDeSaisonComponent } from './components/fruits/fruits-de-saison/fruits-de-saison.component';
 import { legumesDeSaisonComponent } from './components/legumes/legumes-de-saison/legumes-de-saison.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CalendarPageComponent } from './components/calendar-page/calendar-page.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 const appRoutes: Routes = [
   { path: 'fruits', component: ListTousFruitsComponent },
   { path: 'fruits-de-saison', component: FruitsDeSaisonComponent },
   { path: 'legumes-de-saison', component: legumesDeSaisonComponent },
   { path: 'legumes', component: ListTousLegumesComponent },
+  { path: 'calendar-page', component: CalendarPageComponent},
   { path: 'fruits/:name', component: SingleAlimentComponent },
   { path: 'legumes/:name', component: SingleAlimentComponent },
   { path: '', component: HomeComponent }
@@ -43,7 +48,8 @@ const appRoutes: Routes = [
     ListTousLegumesComponent,
     FruitsDeSaisonComponent,
     legumesDeSaisonComponent,
-    FooterComponent
+    FooterComponent,
+    CalendarPageComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,8 @@ const appRoutes: Routes = [
     environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
     RouterModule.forRoot(appRoutes),
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
