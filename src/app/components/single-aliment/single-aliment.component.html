@@ -8,7 +8,9 @@
     <img class="card-img-top imageElmt" src="{{alimentImgUrl}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title" style="text-align: center"> {{alimentName}}</h5>
-      
+      c'est : {{isFavorite}}
+      <button (click)="addToFavoris()"> Ajouter aux favoris</button>
+      <button (click)="deleteDesFavoris()"> Supprimer des favoris</button>
       <div style="text-align: center">
         <ng-container *ngIf="deSaison; else notFirst" >
           <div class="saison">

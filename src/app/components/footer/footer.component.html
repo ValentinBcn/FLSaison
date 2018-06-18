@@ -1,6 +1,12 @@
 <div class="row custom-row">
     <label for="barreDeRecherche">   </label>
-    <input type="text" placeholder=" Rechercher un fruit ou un légume ..." class="searchbar" id="barreDeRecherche">
- 
+    <input type="text" placeholder=" Rechercher un fruit ou un légume ..." class="searchbar" id="barreDeRecherche" #request>
+  
+
+    <button (click)="sendRequest(request.value)"> rechercher</button>
+
+
     <img src="../../../assets/profileIcon.png" class="img-profil" alt="profil icon" >
+    <button (click)="onDeconnect()">Deconnexion</button>
+    <h2>  hello {{username}}  </h2>
 </div>

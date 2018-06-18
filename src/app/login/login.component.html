@@ -1,0 +1,18 @@
+<form action="" style="text-align: center">
+  <div class="form-group">
+      <label for="username"> Nom d'utilisateur </label><br>
+      <input type="text" id="username" #username placeholder="Nom d'utilisateur">  
+      <br><br>
+  </div>
+  <div class="form-group">
+      <label for="password"> Mot de passe</label> <br>
+  <input type="text" #password id="password" placeholder="Mot de Passe"> 
+</div>
+</form>
+<br><br>
+<div style="text-align: center">
+  <button (click)="myFunction(username.value, password.value)"class="btn btn-primary" > Test api</button>
+
+</div>
+
+

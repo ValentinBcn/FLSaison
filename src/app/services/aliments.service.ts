@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { singleFruit } from '../models/singleFruit';
 import 'rxjs/add/operator/map';
+import { GlobaleVariablesService } from './globale-variables.service';
 
 @Injectable()
 export class alimentService {
@@ -14,7 +14,7 @@ export class alimentService {
   tempImgUrl: string = "yay";
   tempMonths: string[] = ["no months"];
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private otherService: GlobaleVariablesService) {
     this.getInfoFruit().subscribe(
       (res: Response) => {
         this.dataFruits = res.json();
@@ -24,10 +24,12 @@ export class alimentService {
         this.dataLegumes = res.json();
       }
     )
+    console.log("légumes", this.dataLegumes)
   }
   getInfoFruit() {
     return this.http.get("https://pwa2.marge-labo.com/wp-json/wp/v2/fruit")
   }
+
 
   getInfoLegume() {
     return this.http.get("https://pwa2.marge-labo.com/wp-json/wp/v2/legume")
@@ -56,16 +58,27 @@ export class alimentService {
   }
 
   seekAliment(nom: string) {
+   
+    console.log('legumes',this.dataLegumes)
     var reponse = [];
+   
     var tabGene = this.dataLegumes.concat(this.dataFruits);
-
+    var temp  = nom[0].toUpperCase() + nom.slice(1);
+    var temp2 = nom.slice(0,nom.length-1);
+    var temp3 = temp2[0].toUpperCase() + nom.slice(1);
+    temp3 = temp3.slice(0,nom.length-1)
+    
+    console.log("temp3",temp3)
     for (var u = 0; u < tabGene.length; u++) {
-      if (tabGene[u].title.rendered === nom) {
+     
+      if (tabGene[u].title.rendered === nom || tabGene[u].title.rendered === temp || tabGene[u].title.rendered === temp2 || tabGene[u].title.rendered === temp3) {
         reponse.push(tabGene[u].title.rendered);
         reponse.push(tabGene[u].acf.photo);
         reponse.push(tabGene[u].acf.saison);
       }
+     
     }
+
     return reponse;
   }
 
@@ -82,6 +95,8 @@ export class alimentService {
       );
     });
   }
+
+ 
 }
 
 

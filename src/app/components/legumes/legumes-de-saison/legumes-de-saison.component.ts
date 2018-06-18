@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { alimentService } from '../../../services/aliments.service';
-import { singleLegume } from '../../../models/singleLegume';
 import { Response } from '@angular/http';
+import { Legume } from '../../../models/singleAliment';
 
 @Component({
   selector: 'app-legumes-de-saison',
@@ -11,9 +11,9 @@ import { Response } from '@angular/http';
 export class legumesDeSaisonComponent implements OnInit {
 
 
-  listeDelegumes: singleLegume[] = [];
+  listeDelegumes: Legume[] = [];
   tableaudebase = [];
-  tableauTrie: singleLegume[] = [];
+  tableauTrie: Legume[] = [];
   month: string;
   constructor(private apiConnect: alimentService) {}
 
@@ -28,10 +28,10 @@ export class legumesDeSaisonComponent implements OnInit {
         (res2: Response) => {
           this.tableaudebase = res2.json();
           for (let i = 0; i < this.tableaudebase.length; i++) {
-            this.listeDelegumes.push(new singleLegume(this.tableaudebase[i].title.rendered, this.tableaudebase[i].acf.photo, this.tableaudebase[i].acf.saison))
+            this.listeDelegumes.push(new Legume(this.tableaudebase[i].title.rendered, this.tableaudebase[i].acf.photo, this.tableaudebase[i].acf.saison))
             for (var u = 0; u < this.tableaudebase[i].acf.saison.length; u++) {
               if (this.tableaudebase[i].acf.saison[u] === this.month) {
-                this.tableauTrie.push(new singleLegume(this.tableaudebase[i].title.rendered, this.tableaudebase[i].acf.photo, this.tableaudebase[i].acf.saison))
+                this.tableauTrie.push(new Legume(this.tableaudebase[i].title.rendered, this.tableaudebase[i].acf.photo, this.tableaudebase[i].acf.saison))
               }
             }
           }

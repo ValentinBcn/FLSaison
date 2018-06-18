@@ -1,0 +1,23 @@
+
+{{data}}
+{{info}}
+<button (click)="myFunction()"> clic</button>
+
+<div class="row justify-content-center elmt2">
+  
+  <div *ngFor="let fruit of listeDeAliments " style="text-align: center" class="col-6 elmt3" >
+  
+        <div class="card elmtSingle " >
+            <a [routerLink]=" ['/fruits',fruit.nom] ">
+            <img class="card-img-top" src="{{fruit.imageUrl}}" alt="Card image cap" style="width:70%">
+          </a>
+            <div class="card-body">
+             <h5 class="card-title titre" style="font-size: 4vw" style="text-align: left"> {{fruit.nom}}</h5>
+          
+          </div>
+        </div>
+      
+      
+  </div>
+  </div>
+  

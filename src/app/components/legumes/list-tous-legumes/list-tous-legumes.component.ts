@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { singleLegume } from '../../../models/singleLegume';
+
 import { alimentService } from '../../../services/aliments.service';
 import { Response } from '@angular/http';
+import { Legume } from '../../../models/singleAliment';
 
 @Component({
   selector: 'app-list-tous-legumes',
@@ -10,9 +11,9 @@ import { Response } from '@angular/http';
 })
 export class ListTousLegumesComponent implements OnInit {
   tableauDeBase = [];
-  listdeLegumes : singleLegume[] = [];
+  listdeLegumes : Legume[] = [];
   month: string;
-  tableauLegumeTrie : singleLegume[] = [];
+  tableauLegumeTrie : Legume[] = [];
   constructor(private apiConnect: alimentService) { }
 
   ngOnInit() {
@@ -25,7 +26,7 @@ export class ListTousLegumesComponent implements OnInit {
       (res: Response)=>{
         this.tableauDeBase = res.json()
         for(let i = 0; i<this.tableauDeBase.length;i++){
-          this.listdeLegumes.push(new singleLegume(this.tableauDeBase[i].title.rendered, this.tableauDeBase[i].acf.photo, this.tableauDeBase[i].acf.saison))       
+          this.listdeLegumes.push(new Legume(this.tableauDeBase[i].title.rendered, this.tableauDeBase[i].acf.photo, this.tableauDeBase[i].acf.saison))       
         }
       }
     )

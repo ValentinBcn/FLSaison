@@ -25,10 +25,12 @@ export class SingleAlimentComponent implements OnInit {
 
   calendarArray = [];
 
+  isFavorite : string; 
+
   constructor(private route: ActivatedRoute, private api: alimentService, private http: Http) {
   
-    
-    
+    console.log("on a ", localStorage.getItem("Persil"))
+   
     var tableauFruits = [];
     var tableauLegume = [];
   
@@ -40,6 +42,8 @@ export class SingleAlimentComponent implements OnInit {
             this.alimentName = this.api.seekAliment(this.route.snapshot.params['name'])[0]
             this.alimentImgUrl = this.api.seekAliment(this.route.snapshot.params['name'])[1]
             this.alimentSaison = this.api.seekAliment(this.route.snapshot.params['name'])[2]
+
+            this.isFavorite= localStorage.getItem(this.alimentName);
 
             this.comparerDates(this.getDate(), this.alimentSaison)
             this.setRealDates();
@@ -58,10 +62,19 @@ export class SingleAlimentComponent implements OnInit {
     this.getDate();
 
   }
+  deleteDesFavoris(){
+    localStorage.setItem(this.alimentName,'pas en favori')
+  }
+  addToFavoris(){
+    localStorage.setItem(this.alimentName,'dans les favoris')
+    console.log( localStorage.getItem(this.alimentName))
+  }
+
+
 
   ngOnInit() {
+  //this.isFavorite = localStorage.getItem(this.alimentName);
   
-    
   };
 
   getDate() {

@@ -1,34 +1,37 @@
-<label>Janvier:
-  <input type="checkbox" (click)="updateDoublonJanvier();checkDoublon(0)">
-</label><br/>
 
-<label>Fevrier:
-  <input type="checkbox"  (click)="updateDoublonFevrier();checkDoublon(1)">
-</label><br/>
 
-<label>Mars:
-    <input type="checkbox"  (click)="updateDoublonMars();checkDoublon(2)">
-  </label><br/>
-  
-  <label>Avril:
-      <input type="checkbox" >
-    </label><br/>
+<button (click)="onJanvier()"> Janvier</button>
+<button (click)="onFevrier()"> Fevrier</button>
+<button (click)="onMars()"> Mars</button>
+<button (click)="onAvril()"> Avril</button>
+<button (click)="onMai()"> Mai</button>
+<button (click)="onJuin()"> Juin</button>
+<button (click)="onJuillet()"> Juillet</button>
+<button (click)="onAout()"> Aout</button>
+<button (click)="onSeptembre()"> Septembre</button>
+<button (click)="onOctobre()"> Octobre</button>
+<button (click)="onNovembre()"> Novembre</button>
+<button (click)="onDecembre()"> Décembre</button>
+
+<div class="main">
+
+  <h3 style="text-align: center"> Tous les fruits</h3>
+  <div class="row justify-content-center elmt2">
     
-
-
-
-
-<h3 style="text-align: center"> Aliments en tout</h3>
-      <div class="row justify-content-center elmt2">
-        <div *ngFor="let element of tableauModifie" style="text-align: center" class="col-2 elmt3">
-           
-               
-                  {{element[0]}}
-                  <hr>
-
-
-
+  <div *ngFor="let fruit of listeDeFruits | filter: laSaisonChoisie, saison" style="text-align: center" class="col-6 elmt3" >
+  
+        <div class="card elmtSingle " >
+            <a [routerLink]=" ['/fruits',fruit.nom] ">
+            <img class="card-img-top" src="{{fruit.imageUrl}}" alt="Card image cap" style="width:70%">
+          </a>
+            <div class="card-body">
+             <h5 class="card-title titre" style="font-size: 4vw" style="text-align: left"> {{fruit.nom}}</h5>
           
-          
+          </div>
         </div>
-      </div>
+      
+      
+  </div>
+  </div>
+  
+  </div>
