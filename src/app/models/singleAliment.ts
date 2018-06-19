@@ -1,3 +1,5 @@
+import { single } from "rxjs/operators";
+
 export class singleAliment{
     nom: string;
     imageUrl: string;
@@ -25,6 +27,14 @@ export class Legume extends singleAliment{
     constructor(_nom: string, _imageUrl: string, _saison: string[]){
         super(_nom,_imageUrl);
         this.saison = _saison;
+    }
+}
+
+export class AlimentWithAdress extends singleAliment{
+    adress: string;
+    constructor(_nom: string, _img:string, _adress: string){
+        super(_nom,_img);
+        this.adress = _adress
     }
 }
 

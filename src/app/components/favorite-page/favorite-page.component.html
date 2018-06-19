@@ -1,0 +1,26 @@
+<div *ngIf = "!listeEstVide">
+
+
+<div class="main">
+    <h3 style="text-align: center"> Mes favoris </h3>
+    <div class="row justify-content-center elmt2">
+      <div *ngFor="let item of listeDeFavoris" style="text-align: center" class="col-6 elmt3">
+        <div class="card elmtSingle ">
+          <a [routerLink]=" item.adress ">
+            <img class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap" style="width:70%">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title titre" style="font-size: 4vw" style="text-align: left"> {{item.nom}}</h5>
+          </div>
+
+          <button (click)="deleteDesFavoris(item.nom)"> Supprimer des favoris </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf= "listeEstVide">
+<p> Et bah alors ? on a pas de favoris ?</p>
+</div>

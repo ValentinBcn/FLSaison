@@ -17,10 +17,9 @@ export class SingleAlimentComponent implements OnInit {
   month: string;
   tableauDeValeur = [];
   deSaison: boolean;
-
   realsDates = [];
   resultComparaison = [];
-
+  toggle = false;
   laRoute: string;
 
   calendarArray = [];
@@ -28,12 +27,12 @@ export class SingleAlimentComponent implements OnInit {
   isFavorite : string; 
 
   constructor(private route: ActivatedRoute, private api: alimentService, private http: Http) {
-  
-    console.log("on a ", localStorage.getItem("Persil"))
+     
+    //console.log("on a ", localStorage.getItem("Persil"))
    
     var tableauFruits = [];
     var tableauLegume = [];
-  
+    
 
     this.api.getInfoFruit().subscribe(
       (res1: Response) => {
@@ -43,8 +42,15 @@ export class SingleAlimentComponent implements OnInit {
             this.alimentImgUrl = this.api.seekAliment(this.route.snapshot.params['name'])[1]
             this.alimentSaison = this.api.seekAliment(this.route.snapshot.params['name'])[2]
 
-            this.isFavorite= localStorage.getItem(this.alimentName);
+            var tempData = localStorage.getItem(this.alimentName );
+            if(tempData != null){
+              this.isFavorite = JSON.parse(tempData).isFavorite;
+            }
+            else if (tempData === undefined){
+              this.isFavorite = 'false';
+            }
 
+            console.log("c'est en favoris", this.isFavorite)
             this.comparerDates(this.getDate(), this.alimentSaison)
             this.setRealDates();
            
@@ -63,10 +69,24 @@ export class SingleAlimentComponent implements OnInit {
 
   }
   deleteDesFavoris(){
-    localStorage.setItem(this.alimentName,'pas en favori')
+    this.isFavorite = 'false';
+    var data = {}
+    localStorage.setItem(this.alimentName,JSON.stringify(data))
+
   }
-  addToFavoris(){
-    localStorage.setItem(this.alimentName,'dans les favoris')
+  addToFavoris(nom: string, img: string){
+    this.toggle = !this.toggle;
+    console.log('toggle',this.toggle)
+    this.isFavorite = 'true';
+    var data = {
+      'adresse' : window.location.href,
+      'image' : img,
+      'nom' : nom,
+      'isFavorite': 'true'
+    }
+
+    localStorage.setItem(this.alimentName,JSON.stringify(data))
+    
     console.log( localStorage.getItem(this.alimentName))
   }
 

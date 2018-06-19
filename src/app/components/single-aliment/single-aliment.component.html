@@ -5,12 +5,24 @@
  
  
     <div class="card singleElmt" >
+        <div *ngIf="isFavorite == 'true'">
+           
+          <img src="../../../assets/heart.png" class="heartIcon">
+          </div>
     <img class="card-img-top imageElmt" src="{{alimentImgUrl}}" alt="Card image cap">
     <div class="card-body">
+    <div *ngIf = " (isFavorite == undefined) || (isFavorite == 'false')">
+   
+          <button (click)="addToFavoris(alimentName,alimentImgUrl)" class="btn btn-success addToFavoris"> Ajouter aux favoris</button>
+   
+        </div>
+      <div *ngIf = "isFavorite === 'true'">
+          <button (click)="deleteDesFavoris()" class="btn btn-danger deleteDesFavoris"> Supprimer des favoris</button>
+      </div>
+      
       <h5 class="card-title" style="text-align: center"> {{alimentName}}</h5>
-      c'est : {{isFavorite}}
-      <button (click)="addToFavoris()"> Ajouter aux favoris</button>
-      <button (click)="deleteDesFavoris()"> Supprimer des favoris</button>
+     
+     
       <div style="text-align: center">
         <ng-container *ngIf="deSaison; else notFirst" >
           <div class="saison">

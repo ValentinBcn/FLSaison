@@ -29,6 +29,7 @@ import { authGuard } from './services/authGuard.service';
 import { ResearchPageComponent } from './research-page/research-page.component';
 import { GlobaleVariablesService } from './services/globale-variables.service';
 import { alimentService } from './services/aliments.service';
+import { FavoritePageComponent } from './components/favorite-page/favorite-page.component';
 
 
 
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
   { path: 'legumes/:name', component: SingleAlimentComponent },
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'research-page/:alimentname', component: ResearchPageComponent}
+  { path: 'research-page/:alimentname', component: ResearchPageComponent},
+  { path: 'mes-favoris', component: FavoritePageComponent}
 ]
 
 
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
     CalendarPageComponent,
     LoginComponent,
     ResearchPageComponent,
-    FilterPipe
+    FilterPipe,
+    FavoritePageComponent
   ],
   imports: [
     PersistenceModule,
@@ -78,6 +81,6 @@ const appRoutes: Routes = [
     FormsModule
   ],
   providers: [ authentificationService, authGuard, GlobaleVariablesService,alimentService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, FooterComponent]
 })
 export class AppModule { }

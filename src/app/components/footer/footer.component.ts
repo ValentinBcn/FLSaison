@@ -14,6 +14,7 @@ import { alimentService } from '../../services/aliments.service';
 export class FooterComponent implements OnInit {
   username: string
   objectRequest: string;
+  favoris = [];
   constructor( private router: Router, private auth: authentificationService, private data: GlobaleVariablesService) {
     
   }
@@ -21,9 +22,7 @@ export class FooterComponent implements OnInit {
     localStorage.removeItem('loggedIn')
     this.router.navigate(['login'])
   }
-  ngOnInit() {
-    
-  }
+  
 
   sendRequest(donnee){
     
@@ -32,4 +31,30 @@ export class FooterComponent implements OnInit {
 
   }
 
+  onFavoris(){
+    this.favoris = [];
+    for (var obj in window.localStorage){
+      if(window.localStorage.getItem(obj)=== "true")
+      this.favoris.push(obj)  
+      console.log('cest',this.favoris)
+    }
+
+    
+  }
+  ngOnInit() {
+   
+    
+  }
+  myFunction() {
+    console.log('my function')
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+
+// Close the dropdown menu if the user clicks outside of it
+
+  
+
+
+  
 }
