@@ -1,19 +1,22 @@
+<h3 style="text-align: center; margin-top:10px">Resultat de recherche </h3>
 
-<div class="row justify-content-center elmt2">
+<div *ngIf="existence" class="row justify-content-center elmt2">
   
-  <div *ngFor="let fruit of listeDeAliments " style="text-align: center" class="col-6 elmt3" >
+  <a [routerLink]=" [adress,objetRecherche.nom] ">
   
-        <div class="card elmtSingle " >
-            <a [routerLink]=" ['/fruits',fruit.nom] ">
-            <img class="card-img-top" src="{{fruit.imageUrl}}" alt="Card image cap" style="width:70%">
-          </a>
+        <div class="card elmtSingle " style="margin-top: 50px" >
+           
+            <img class="card-img-top" src="{{objetRecherche.imageUrl}}" alt="Card image cap" style="width:70%">
+    
             <div class="card-body">
-             <h5 class="card-title titre" style="font-size: 4vw" style="text-align: left"> {{fruit.nom}}</h5>
+             <h5 class="card-title titre" style="font-size: 4vw" style="text-align: left"> {{objetRecherche.nom}}</h5>
           
           </div>
         </div>
+        </a>
+   
       
       
+ 
   </div>
-  </div>
-  
+<p *ngIf="!existence">Bah alors ? <br> On ne sait pas faire une <br>recherche avec des bons termes ?</p>

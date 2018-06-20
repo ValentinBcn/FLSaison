@@ -45,7 +45,7 @@ const appRoutes: Routes = [
   { path: 'legumes/:name', component: SingleAlimentComponent },
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'research-page/:alimentname', component: ResearchPageComponent},
+  { path: 'research-page', component: ResearchPageComponent},
   { path: 'mes-favoris', component: FavoritePageComponent}
 ]
 

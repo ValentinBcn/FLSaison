@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { authentificationService } from '../../services/authentification.service';
 import { PersistenceService } from 'angular-persistence';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { GlobaleVariablesService } from '..//../services/globale-variables.service';
 import { alimentService } from '../../services/aliments.service';
 
-
+import {Observable } from 'rxjs'
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -15,19 +15,35 @@ export class FooterComponent implements OnInit {
   username: string
   objectRequest: string;
   favoris = [];
-  constructor( private router: Router, private auth: authentificationService, private data: GlobaleVariablesService) {
+  
+  constructor(private route: ActivatedRoute, private router: Router, private auth: authentificationService, private data: GlobaleVariablesService, private recherche: alimentService) {
     
   }
+
   onDeconnect(){
     localStorage.removeItem('loggedIn')
     this.router.navigate(['login'])
   }
   
-
+  
   sendRequest(donnee){
+
+  if(this.route.snapshot['_routerState'].url === '/research-page'){
+     location.reload()
+    }
+    var myObservable = Observable.of(donnee)
     
+    myObservable.subscribe(res => {
+      if(this.recherche.rechercheParmiLesAliments(res)!=undefined){
+        this.data.globalData = this.recherche.rechercheParmiLesAliments(res)
+ 
+      }
+      localStorage.setItem('rechercheObject',JSON.stringify(this.data.globalData))
+    })
+    this.router.navigate(['research-page'])
+   
     this.data.changeSimpleVariable(donnee)
-    this.router.navigate(['research-page', donnee])
+  
 
   }
 

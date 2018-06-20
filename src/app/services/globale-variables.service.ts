@@ -5,6 +5,7 @@ import 'rxjs/add/observable/of';
 export class GlobaleVariablesService {
  private simpleVariable = "lol"
 
+ globalData;
   constructor() {
    
    }

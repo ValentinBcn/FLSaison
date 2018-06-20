@@ -82,7 +82,7 @@ export class SingleAlimentComponent implements OnInit {
       'adresse' : window.location.href,
       'image' : img,
       'nom' : nom,
-      'isFavorite': 'true'
+      'isFavorite': 'true'  
     }
 
     localStorage.setItem(this.alimentName,JSON.stringify(data))

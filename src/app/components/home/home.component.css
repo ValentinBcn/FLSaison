@@ -8,6 +8,7 @@
     background-repeat: no-repeat;
     height:90vh; 
     background-image: url("../../../assets/bgHome.png");
+    margin-right: -15px;
     
     text-align: center;
 }

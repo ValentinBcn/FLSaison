@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SingleAlimentComponent } from '../single-aliment/single-aliment.component';
-import { singleAliment, AlimentWithAdress } from '../../models/singleAliment';
+import { singleAliment, AlimentWithAdress, AlimentWithAdressAndType } from '../../models/singleAliment';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-favorite-page',
@@ -8,59 +9,54 @@ import { singleAliment, AlimentWithAdress } from '../../models/singleAliment';
   styleUrls: ['./favorite-page.component.css']
 })
 export class FavoritePageComponent implements OnInit {
-  listeDeFavoris : AlimentWithAdress[] = []
-  listeEstVide : boolean;
-  constructor() {
-    this.listeDeFavoris = [];
-    console.log(localStorage)
-    if(this.listeDeFavoris.length === 0 ){
-      this.listeEstVide = true;
-    }
-    for(var obj in localStorage){
-      var data =  JSON.parse(localStorage.getItem(obj));
-      if(data != null){
-        if(data.image != null){
-          this.listeEstVide = false;
-          this.listeDeFavoris.push(new AlimentWithAdress(data.nom,data.image,data.adresse))
-          console.log('alors',data.adresse)
-        }
-       
-      }
-     
-      }
-      console.log('tada', this.listeDeFavoris)
-    
-     
-     
-/*
-        var lol = {
-          'adresse' : '.location.href',
-          'image' : 'img',
-          'nom' : 'nom',
-          'isFavorite': 'false'
-        }
-        localStorage.setItem(info,JSON.stringify(lol))*/
-    
-      
+  listeDeFavoris: AlimentWithAdress[] = []
+  listeEstVide: boolean;
 
-    
-  
-   }
+  constructor(private route: Router) {
 
-   deleteDesFavoris(infola){
+   
+  }
+
+  deleteDesFavoris(infola) {
     var data = {}
-    var index;
-    for(var i =0; i<this.listeDeFavoris.length;i++){
-      if(this.listeDeFavoris[i].nom === infola){
-        index = i
+    localStorage.removeItem(infola)
+    for (var i = 0; i < this.listeDeFavoris.length; i++) {
+      console.log('ca arrive', this.listeDeFavoris[i])
+      if (this.listeDeFavoris[i].nom === infola) {
+        var index = i
+        console.log('index',i)
       }
-   }
-    this.listeDeFavoris.splice(index,1)
-    if(this.listeDeFavoris.length === 0 ){
+    }
+
+    this.listeDeFavoris.splice(index, 1)
+    
+    if (this.listeDeFavoris.length === 0) {
       this.listeEstVide = true;
     }
   }
   ngOnInit() {
+    this.listeDeFavoris = [];
+    console.log(localStorage)
+    if (this.listeDeFavoris.length === undefined) {
+      this.listeEstVide = true;
+    }
+
+    for (var obj in localStorage) {
+      console.log(typeof (obj))
+      var temp = localStorage.getItem(obj)
+      if (localStorage.getItem(obj) != null && localStorage.getItem(obj).length != 0 && JSON.parse(localStorage.getItem(obj)).nom != undefined) {
+        let data = JSON.parse(localStorage.getItem(obj));
+        this.listeEstVide = false;
+        console.log("added")
+        this.listeDeFavoris.push(new AlimentWithAdress(data.nom, data.image, data.adresse))
+      }
+    }
+    console.log("mes favoris",this.listeDeFavoris)
   }
+
+  onNavigate(data: string){
+    console.log(data)
+    window.location.href = data;
+   }
 
 }

@@ -38,4 +38,13 @@ export class AlimentWithAdress extends singleAliment{
     }
 }
 
+export class AlimentWithAdressAndType extends singleAliment{
+    adress: string
+    type: string
+    constructor(_nom:string,_img:string,_adress:string,_type:string){
+        super(_nom,_img);
+        this.adress = _adress;
+        this.type = _type;
+    }
+}
 
