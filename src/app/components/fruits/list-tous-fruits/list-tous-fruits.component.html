@@ -1,14 +1,13 @@
 
 <div class="main">
-<input type="text" [(ngModel)]="filteredStatus">
-<hr>
+
     <a class="nav-link" [routerLink]="['/fruits-de-saison']">
 <button style="text-align:center" class="btn btn-primary custom-btn"> AFFICHER SEULEMENT LES PRODUITS DE SAISON </button>
 </a>
 <h3 style="text-align: center"> Tous les fruits</h3>
 <div class="row justify-content-center elmt2">
   
-<div *ngFor="let fruit of listeDeFruits | filter: 'filteredStatus', nom" style="text-align: center" class="col-6 elmt3" >
+<div *ngFor="let fruit of listeDeFruits" style="text-align: center" class="col-6 elmt3" >
 
       <div class="card elmtSingle " >
           <a [routerLink]=" ['/fruits',fruit.nom] ">

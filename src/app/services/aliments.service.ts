@@ -36,12 +36,12 @@ export class alimentService {
   
   }
   getInfoFruit() {
-    return this.http.get("https://pwa2.marge-labo.com/wp-json/wp/v2/fruit")
+    return this.http.get("https://pwa2.marge-labo.com/wp-json/wp/v2/fruit?per_page=50")
   }
 
 
   getInfoLegume() {
-    return this.http.get("https://pwa2.marge-labo.com/wp-json/wp/v2/legume")
+    return this.http.get("https://pwa2.marge-labo.com/wp-json/wp/v2/legume?per_page=50")
   }
 
   getFake() {

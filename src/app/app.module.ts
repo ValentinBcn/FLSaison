@@ -36,7 +36,7 @@ import { FavoritePageComponent } from './components/favorite-page/favorite-page.
 
 
 const appRoutes: Routes = [
-  { path: 'fruits', component: ListTousFruitsComponent, canActivate: [authGuard] },
+  { path: 'fruits', component: ListTousFruitsComponent/*, canActivate: [authGuard] */},
   { path: 'fruits-de-saison', component: FruitsDeSaisonComponent },
   { path: 'legumes-de-saison', component: legumesDeSaisonComponent },
   { path: 'legumes', component: ListTousLegumesComponent },

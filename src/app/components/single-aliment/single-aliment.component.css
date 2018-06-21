@@ -12,6 +12,7 @@
 .main{
     background-color: #f2f2f2;
     margin-right: -15px;
+    padding-top: 15px;
 }
 
 .imageElmt{
@@ -110,3 +111,9 @@
     margin-top: 27px;
     margin-left: 25px;
   }
+
+  .retour{
+      display:block;
+      margin:auto;
+  }
+  

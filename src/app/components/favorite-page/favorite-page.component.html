@@ -1,4 +1,4 @@
-<div *ngIf = "!listeEstVide">
+<div *ngIf = "listeDeFavoris.length!=0">
 
 
 <div class="main">
@@ -21,6 +21,10 @@
 
 </div>
 
-<div *ngIf= "listeEstVide">
-<p> Et bah alors ? on a pas de légumineuse ou de fruits favoris ?</p>
+<div *ngIf= "listeDeFavoris.length===0">
+  <img src="../../../assets/noFavoris.png" style="width:100%; height:auto" alt="">
+  <div>
+      <p> Et bah alors ? on a pas de légumineuse ou de fruits favoris ?</p>
+  </div>
+
 </div>

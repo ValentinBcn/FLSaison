@@ -1,14 +1,3 @@
-
-#Angular rewrites
-RewriteCond %{REQUEST_FILENAME} -s [OR]
-RewriteCond %{REQUEST_FILENAME} -l [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^.*$ - [NC,L]
-
-# If the requested pattern is file and file doesn't exist, send 404.
-# This fixes the issue with Angular being included more than once
-# when you get the path of a component template wrong.
-RewriteCond %{REQUEST_URI} ^(\/[a-z_\-\s0-9\.]+)+\.[a-zA-Z]{2,4}$
-RewriteRule ^ - [L,R=404]
-
-RewriteRule ^(.*) /index.html [NC,L]
+RewriteEngine on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule (.*) https://fl.marge-labo.com/$1 [R=301,L]
