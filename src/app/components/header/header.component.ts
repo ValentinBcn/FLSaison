@@ -24,7 +24,16 @@ export class HeaderComponent implements OnInit {
         $('.square3').css('display','');
         $('.square2').css('visibility','');
         $('.square2').css('display','block');
-      }   
+      } 
+      
+      else if(e.url.indexOf('/research-page') > -1){
+        $('.square3').css('visibility','hidden');
+        $('.square3').css('display','');
+        $('.square2').css('visibility','hidden');
+        $('.square2').css('display','');
+        $('.square1').css('visibility','hidden');
+        $('.square1').css('display','');
+     }
 
 
       else if(e.url.indexOf('/legumes') > -1){

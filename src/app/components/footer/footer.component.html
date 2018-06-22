@@ -2,14 +2,14 @@
 <div class="row custom-row">
 
     <div class="  col-4">
-        <input type="text" name="search" placeholder="Rechercher des fruits, légumes..." id="barreDeRecherche" #request style="width:100%" (keyup.enter)="sendRequest(request.value)" >
+        <input type="text" name="search" placeholder="Rechercher des fruits, légumes..." id="barreDeRecherche" #request style="width:100%" (keyup.enter)="sendRequest(request.value)" class="recherche">
     </div>
 
-    <div class="col-1" style="    padding-left: 0px;">
+    <div class="col-2" style="    padding-left: 0px;">
         <img src="../../../assets/iconLoupe.png" width="15px" height="15px" alt="" (click)="sendRequest(request.value)" >
     </div>
     
-    <div class=" col-3 favorite">
+    <div class=" col-4 favorite">
         <a class="nav-link legumes" [routerLink]="['/mes-favoris']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
             style="text-align: center">
             <img src="../../../assets/iconeFavoris.png" width="25px" height="25px" alt="">
@@ -17,10 +17,10 @@
         </a>
     </div>
 
-    <div class="col-3">
+   <!-- <div class="col-3">
         <img src="../../../assets/iconLogout.png" class="logoutIcon" (click)="onDeconnect()" alt="">
         <p style="margin-left: -14px">Déconnexion</p>
-    </div>
+    </div> -->
 
     
 
