@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { alimentService } from '../../../services/aliments.service';
 import { Response } from '@angular/http';
 import { Fruit } from '../../../models/singleAliment';
-
+import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationStart } from '@angular/router';
 
 
 @Component({
@@ -17,14 +18,17 @@ export class ListTousFruitsComponent implements OnInit {
   tableauTrie: Fruit[] = [];
   month: string;
   filteredStatus: string;
-  constructor(private apiConnect: alimentService) {
+  pageFruits:boolean;
+  constructor(private apiConnect: alimentService, private router:Router) {
 
   }
 
   ngOnInit() {
     this.onGetFruits();
-    console.log('ok')
-  }
+    console.log('ok');
+}
+    
+  
 
   onGetFruits() {
     this.apiConnect.getInfoFruit()

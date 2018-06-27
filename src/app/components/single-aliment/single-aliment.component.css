@@ -8,44 +8,49 @@
     margin-left: auto;
     margin-right: auto;
     display:block;
+    border-radius: 33px;
+    box-shadow: 1px 1px 12px #555;
 }
 .main{
-    background-color: #f2f2f2;
+   /*background-image: linear-gradient(to right,#FFBFD1, #FF6A6E);*/
     margin-right: -15px;
     padding-top: 15px;
+    padding-bottom: 60px;
 }
 
 .imageElmt{
-    width: 70%;
+    width: 33%;
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
 
 .saison{
-    background-color: #73e473;
     padding-bottom: 5px;
     padding-top: 10px;
+    text-align: center;
 }
 
 .pasDeSaison{
-    background-color: #FE2E2E;
+    text-align: center;
     padding-bottom: 5px;
     padding-top: 10px;
 }
 
 .moisVert{
-    background-color:#73E473;
-    padding-bottom: 15px;
-    padding-top: 15px;
+    background-color: #00B75F;
+    color: white;
+  text-align: center;
+    
     font-size: 4vw;
+    border-radius:15px;
 }
 
 .moisRouge{
     background-color: #FE2E2E;
-    padding-bottom: 15px;
-    padding-top: 15px;
+   
     font-size: 4vw;
+    border-radius:15px;
 }
 
 .column{
@@ -81,13 +86,16 @@
   .dateSaison{
     padding-left: 0px;
     padding-right: 0px;
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
   .line-months{
       padding-bottom: 0px;
       padding-top:0px;
-      margin-top: -28px;
+    margin-top:-32px;
+      margin-left: 22px;
+    margin-right: 13px;
+
   }
 
   .addToFavoris{
@@ -104,16 +112,25 @@
   }
 
   .heartIcon{
-    height:25px;
-     width:25px;
-     position: absolute;
+    height: 20px;
+    width: 20px;
+    position: absolute;
     z-index: 10;
-    margin-top: 27px;
-    margin-left: 25px;
+    margin-top: 22px;
+    margin-left: 23px;
   }
 
   .retour{
-      display:block;
-      margin:auto;
+    margin-left: 16%;
+  }
+
+/*//////////////////////////////////////*/
+  .titre{
+    margin-top:20px;
+  }
+
+
+  .titre-saison{
+      text-align: center
   }
   

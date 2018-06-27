@@ -1,10 +1,6 @@
 .row{
     padding-top: 15px;
-    background: #f37c5a; /* Old browsers */
-    background: -moz-linear-gradient(left, #f37c5a 0%, #ed5063 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #f37c5a 0%,#ed5063 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #f37c5a 0%,#ed5063 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f37c5a', endColorstr='#ed5063',GradientType=1 );
+    background-color: #333333;
     color: white;
     font-size: 10px;
     padding-bottom: 13px;
@@ -20,7 +16,7 @@
 .custom-row{
 
     padding-bottom: 25px;
-    height: 56px;
+    height: 13vh;
     padding-top: 11px;
 }
 
@@ -31,6 +27,30 @@
     width:35px;
 }
 
+#data input[type="text"]{
+    background: url('../../../assets/iconLoupe.png');
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: right;
+    border-bottom: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    padding-right:15px;
+    float:right;
+    font-size: 14px;
+    width:15px;
+    -webkit-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+
+    color:white;
+    margin-right: 30px;
+    margin-top:18px;
+}
+#data input[type="text"]:hover {
+    border-bottom: solid 2px white;
+    width: 70%;
+}
 
 
 .logoutIcon{
@@ -55,5 +75,10 @@ legumes{
 }
 
 .recherche{
+    background: transparent;
     font-size:16px;
+    border-bottom: solid 2px white;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
 }

@@ -19,6 +19,9 @@ export class FooterComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private auth: authentificationService, private data: GlobaleVariablesService, private recherche: alimentService) {
     
   }
+  redirectToHome(){
+    this.router.navigate([''])
+  }
 
   onDeconnect(){
     localStorage.removeItem('loggedIn')

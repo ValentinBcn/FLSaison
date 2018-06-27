@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router, NavigationStart} from '@angular/router';
 import { alimentService } from '../../services/aliments.service';
 import { Http, Response } from '@angular/http';
 @Component({
@@ -22,11 +22,12 @@ export class SingleAlimentComponent implements OnInit {
   toggle = false;
   laRoute: string;
 
+  pageFruits: string;
   calendarArray = [];
 
   isFavorite : string; 
 
-  constructor(private route: ActivatedRoute, private api: alimentService, private http: Http) {
+  constructor(private route: ActivatedRoute, private api: alimentService, private http: Http, private router: Router) {
      
     //console.log("on a ", localStorage.getItem("Persil"))
    
@@ -95,6 +96,9 @@ export class SingleAlimentComponent implements OnInit {
   ngOnInit() {
   //this.isFavorite = localStorage.getItem(this.alimentName);
   
+
+  console.log('pagefruits',this.pageFruits)
+  console.log("deesf",this.isAFruit())
   };
 
   getDate() {
@@ -153,7 +157,14 @@ export class SingleAlimentComponent implements OnInit {
 
    
     
-    
+    isAFruit(){
+      var URL = window.location.href;
+
+      if( URL.indexOf('fruit')>-1 ){
+        return true;
+      }
+      return false;
+    }
 
     
   

@@ -1,11 +1,13 @@
 .row{
     padding-top: 25px;
-    background: #f37c5a; /* Old browsers */
-    background: -moz-linear-gradient(left, #f37c5a 0%, #ed5063 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #f37c5a 0%,#ed5063 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #f37c5a 0%,#ed5063 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f37c5a', endColorstr='#ed5063',GradientType=1 );
+    background-color: #333333;
     font-size: 10px;
+    height: 13vh;
+    position: fixed;
+    bottom: 0;
+    margin-left:0px;
+    margin-right:0px;
+    width: 100vw;
 }
 a{
     color:white;

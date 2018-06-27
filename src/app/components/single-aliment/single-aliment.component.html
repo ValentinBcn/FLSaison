@@ -1,65 +1,69 @@
-<div class="main">
-    <button class="btn btn-outline-info retour" (click)="goBack()"> Retour </button>
-<div class="row justify-content-center ligne">
- 
- 
- 
-    <div class="card singleElmt" >
-        <div *ngIf="isFavorite == 'true'">
-           
-          <img src="../../../assets/heart.png" class="heartIcon">
+<div class="main" [ngStyle]=" {'background-image': isAFruit() === true ? 
+'linear-gradient(to right,#FFBFD1, #FF6A6E)' :  'linear-gradient(to right,#bffff4, #78cfb4)'}" >
+    <p class="retour" style="font-size:3vw" (click)="goBack()">  &#8592;   Retour </p>
+
+    <div class="row justify-content-center ligne">
+    
+      <div class="card singleElmt" >
+        <div *ngIf="isFavorite == 'true'">     <img src="../../../assets/heart.png" class="heartIcon"></div>
+          <h5 class="card-title titre" style="text-align: center"> {{alimentName}}</h5>
+          <hr>
+          <p class="card-text titre-saison"><b>-Pleine saison-   </b> </p><br> 
+       
+          <div class="row line-months">
+            <div class="col-4 dateSaison" *ngFor="let date of alimentSaison">
+                {{date}}
+              </div>
           </div>
+          <hr>
+          <div style="text-align: center; margin-top:20px">
+        
+          <!--<div class="arrow-down"></div> -->
+            <div class="row ligne">
+              <div class="col column" *ngFor="let item of calendarArray">
+                <ng-container *ngIf="item.value === true; else blabla" >
+                  <div class="moisVert">
+                    {{item.mois}}  
+                  </div>
+                </ng-container>
+    
+                <ng-template #blabla>
+                  <div class="moisRouge">
+                    {{item.mois}} 
+                  </div>
+                </ng-template>
+              </div>
+            </div>              
+          </div>
+        <ng-container *ngIf="deSaison; else notFirst" >
+            <div class="saison">
+                <p> C'est de saison !  </p>
+            </div>
+            
+          </ng-container>
+          <ng-template #notFirst>
+              <div class="pasDeSaison">
+                  <p> Ce n'est pas de saison...  </p>
+              </div>
+          </ng-template>
+
+
+        
+      
+         <hr>
     <img class="card-img-top imageElmt" src="{{alimentImgUrl}}" alt="Card image cap">
     <div class="card-body">
     <div *ngIf = " (isFavorite == undefined) || (isFavorite == 'false')">
-   
           <button (click)="addToFavoris(alimentName,alimentImgUrl)" class="btn btn-success addToFavoris"> Ajouter aux favoris</button>
-   
-        </div>
+    </div>
       <div *ngIf = "isFavorite === 'true'">
           <button (click)="deleteDesFavoris()" class="btn btn-danger deleteDesFavoris"> Supprimer des favoris</button>
       </div>
       
-      <h5 class="card-title" style="text-align: center"> {{alimentName}}</h5>
+      
      
      
-      <div style="text-align: center">
-        <ng-container *ngIf="deSaison; else notFirst" >
-          <div class="saison">
-              <p> C'est de saison !  </p>
-          </div>
-          
-        </ng-container>
-        <ng-template #notFirst>
-            <div class="pasDeSaison">
-                <p> Ce n'est pas de saison...  </p>
-            </div>
-        </ng-template>
-        <div class="arrow-down"></div>
-        <div class="row ligne">
-          <div class="col column" *ngFor="let item of calendarArray">
-            <ng-container *ngIf="item.value === true; else blabla" >
-              <div class="moisVert">
-                {{item.mois}}  
-              </div>
-            </ng-container>
-
-            <ng-template #blabla>
-              <div class="moisRouge">
-                {{item.mois}} 
-              </div>
-            </ng-template>
-          </div>
-        </div>
-        <hr>
-        <p class="card-text"><b>Pleine saison :   </b> </p><br> 
-        <div class="row line-months">
-            <div class="col-4 dateSaison" *ngFor="let date of alimentSaison">
-                {{date}}
-              </div>
-        </div>
-          
-      </div>
+      
     </div>
   </div>
 

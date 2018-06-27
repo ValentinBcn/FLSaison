@@ -1,9 +1,9 @@
-<div class="row fixed-bottom">
+<div class="row leheader">
     <div class="col-3 nav-item">
       <div class="square1">  </div>
       <a class="nav-link home" [routerLink]="['/']"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style=" text-align: center">
       <img src="../../../assets/homeIcon.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
-       <b> ACCUEIL</b> 
+        Accueil
           <span class="sr-only">(current)</span>
         </a>
     </div>
@@ -12,7 +12,8 @@
               <a class="nav-link fruits" [routerLink]="['/fruits']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style="text-align: center">
         <img src="../../../assets/fruitPage.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
         <div class="nav-item" >
-          <b>  FRUITS </b> 
+         
+        Fruits 
           </div>
           </a>
     </div>
@@ -21,10 +22,21 @@
       <a class="nav-link legumes" [routerLink]="['/legumes']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style="text-align: center">
         <img src="../../../assets/LegumePage.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
         <div class="nav-item">
-           <b> LEGUMES</b> 
+            Légumes 
           </div>
       </a>
     </div>
+    
+    <div class="col-3 nav-item">
+      <div class="square3">  </div>
+    <a class="nav-link legumes" [routerLink]="['/mes-favoris']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style="text-align: center">
+      <img src="../../../assets/iconeFavoris.png" width='20px' height='20px' alt="" style="margin-left: auto; margin-right: auto; display: block;">
+      <div class="nav-item">
+          Mes Favoris 
+        </div>
+    </a>
+  </div>
+
 
    <!-- <div class="col-3 nav-item">
         <div class="square3">  </div>
