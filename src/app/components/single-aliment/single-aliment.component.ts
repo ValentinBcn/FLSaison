@@ -96,7 +96,7 @@ export class SingleAlimentComponent implements OnInit {
   ngOnInit() {
   //this.isFavorite = localStorage.getItem(this.alimentName);
   
-
+  console.log(this.getDate())
   console.log('pagefruits',this.pageFruits)
   console.log("deesf",this.isAFruit())
   };
@@ -106,7 +106,9 @@ export class SingleAlimentComponent implements OnInit {
     ladate.getMonth() + 1
     var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
     this.month = tab_mois[ladate.getMonth()];
+
     return (tab_mois[ladate.getMonth()])
+  
   }
 
   goBack(){

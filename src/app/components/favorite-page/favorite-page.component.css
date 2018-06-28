@@ -1,0 +1,18 @@
+.main{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top:40px;
+    height:74vh;
+    background-image: linear-gradient(to right,#FFBFD1, #bffff4)
+}
+
+@font-face {
+    font-family: "Louis Georges Cafe";
+    src: url('/../../../assets/fonts/LouisGeorgesCafe/Louis George Cafe.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .titre .btn-danger{
+      font-family: "Louis Georges Cafe"
+  }

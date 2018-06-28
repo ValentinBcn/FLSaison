@@ -9,12 +9,29 @@
     margin-right: auto;
     display:block;
     border-radius: 33px;
+    margin-bottom: 30px;
     box-shadow: 1px 1px 12px #555;
 }
+
+@font-face {
+    font-family: "Louis Georges Cafe";
+    src: url('/../../../assets/fonts/LouisGeorgesCafe/Louis George Cafe.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Louis Georges Cafe Bold";
+    src: url('/../../../assets/fonts/LouisGeorgesCafe/Louis George Cafe Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 .main{
    /*background-image: linear-gradient(to right,#FFBFD1, #FF6A6E);*/
-    margin-right: -15px;
-    padding-top: 15px;
+
+    padding-top: 0px;
     padding-bottom: 60px;
 }
 
@@ -26,31 +43,35 @@
 }
 
 .saison{
-    padding-bottom: 5px;
-    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-top: 15px;
     text-align: center;
+    margin-bottom: 0px;
 }
 
 .pasDeSaison{
     text-align: center;
-    padding-bottom: 5px;
-    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-top: 15px;
+    margin-bottom: 0px;
+
 }
 
 .moisVert{
     background-color: #00B75F;
     color: white;
-  text-align: center;
-    
+    text-align: center;
     font-size: 4vw;
     border-radius:15px;
+    font-family: "Louis Georges Cafe"
 }
 
 .moisRouge{
     background-color: #FE2E2E;
-   
+    color: white;
     font-size: 4vw;
     border-radius:15px;
+    font-family: "Louis Georges Cafe"
 }
 
 .column{
@@ -60,10 +81,10 @@
 
 .ligne{
   
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 2px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .arrow-down {
@@ -87,6 +108,7 @@
     padding-left: 0px;
     padding-right: 0px;
     font-size: 3vw;
+    font-family: "Louis Georges Cafe";
   }
 
   .line-months{
@@ -99,38 +121,73 @@
   }
 
   .addToFavoris{
-      display: block;
-      margin: auto;
+        display: block;
+        margin: auto;
         font-size: 4vw;
         margin-bottom: 5px;
+        font-family: "Louis Georges Cafe";
+        border-radius: 20px;
   }
 
   .deleteDesFavoris{
-    font-size: 4vw;
-      display: block;
-      margin: auto;
+        font-size: 4vw;
+        display: block;
+        margin: auto;
+        font-family: "Louis Georges Cafe";
+        border-radius: 20px;
   }
 
   .heartIcon{
     height: 20px;
     width: 20px;
-    position: absolute;
+
+    z-index: 10;
+    margin-top: 22px;
+    margin-left: 23px;
+  }
+
+  .heartEmpty{
+    height: 25px;
+    width: 25px;
+
     z-index: 10;
     margin-top: 22px;
     margin-left: 23px;
   }
 
   .retour{
-    margin-left: 16%;
+    margin-top: 0px;
+    margin-bottom: -9px;
+    padding-left: 36px;
+   
+    padding-top:7px;
+    padding-bottom:2px;
+    height:30px;
   }
 
 /*//////////////////////////////////////*/
   .titre{
-    margin-top:20px;
+    margin-top:10px;
+  
+    font-size:8vw;
+    margin-bottom:0px;
   }
 
 
   .titre-saison{
-      text-align: center
+      text-align: center;
+      font-family: "Louis Georges Cafe Bold";
   }
   
+
+  .crop {
+    width: 150px;
+    height: 270px;
+    overflow: hidden;
+}
+
+.crop img {
+    width: 360px;
+    height: 290px;
+    margin: -15px 0 0 -209px;
+}

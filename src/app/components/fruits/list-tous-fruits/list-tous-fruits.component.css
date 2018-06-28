@@ -17,22 +17,25 @@
     margin-top: 15px;
     border: solid 0px;
     border-radius: 0px;
+    
+    border-radius: 10px;
 }
 
 .main{
    
-
+   
     padding-top: 15px;
     padding-bottom: 80px;
+    background-size: 100vw 99vh;
+    background-attachment: fixed;
 
 }
 
 .main1{
-    background-color: white;
+    
     margin-left: 17px;
     margin-right: 17px;
-    border-radius: 33px;
-    box-shadow: 1px 1px 12px #555;
+    
 }
 
 .custom-btn{
@@ -48,19 +51,49 @@
 
 
 .elmt3{
-    padding: 0 7px 0 7px;
-    margin-top: 22px;
+    margin-right: 4px;
+    text-align: center;
+    margin-left: -5px;
+  
+    margin-bottom: 20px;
+    border-radius: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+  
 
 }
 
 .titre{
-    font-family: 'codecColdTrial';
-    font-size: 4vw;
-    margin-left: -8px;
-    margin-bottom: -14px;
+    
+    font-size: 5vw;
+    margin-left: 10px;
+    margin-top: 16px;
+    margin-bottom:5px;
+    text-align: center; 
+    font-family: 'Garamond';
+    color:darkslategray;
 }
 
 .btn-fruits{
+    text-align: center;
+    background-color: #FF6B70;
+    color: white;
+    font-size: 3vw;
+    padding-top: 10px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: 10px;
+    /* border: solid; */
+    border-radius:  10px 0px 0 10px;
+    border: solid 1px #FF6B70;
+    
+
+   
+
+}
+
+.btn-saison{
     text-align: center;
     background-color: white;
     color: black;
@@ -70,24 +103,8 @@
     padding-right: 22px;
     padding-bottom: 10px;
     /* border: solid; */
-    border-radius: 13px;
-    border: solid 1px #333333;
-    box-shadow: 1px 1px 12px #555;
-
-}
-
-.btn-saison{
-    text-align: center;
-    background-color: transparent;
-    color: black;
-    font-size: 3vw;
-    padding-top: 10px;
-    padding-left: 22px;
-    padding-right: 22px;
-    padding-bottom: 10px;
-    /* border: solid; */
-    border-radius: 13px;
-    border: solid 1px #333333;
+    border-color: darkgrey;
+    border-radius:  0px 10px 10px 0px
   
 
 }
@@ -102,6 +119,6 @@
     padding-left: 0px;
     text-align: left;
     
-    margin-right: 17px;
+
 }
 

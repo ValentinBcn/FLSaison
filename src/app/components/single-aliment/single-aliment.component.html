@@ -1,70 +1,102 @@
-<div class="main" [ngStyle]=" {'background-image': isAFruit() === true ? 
-'linear-gradient(to right,#FFBFD1, #FF6A6E)' :  'linear-gradient(to right,#bffff4, #78cfb4)'}" >
-    <p class="retour" style="font-size:3vw" (click)="goBack()">  &#8592;   Retour </p>
-
-    <div class="row justify-content-center ligne">
+<!--<div class="main" [ngStyle]=" {'background-image': isAFruit() === true ? 
+'linear-gradient(to right,#FFBFD1, #FF6A6E)' :  'linear-gradient(to right,#bffff4, #78cfb4)'}" > -->
+<div class="main" style="background-color:white">
+  <div [ngStyle]=" {'background-image': isAFruit() === true ? 
+  'linear-gradient(to right,#FFBFD1, #FF6A6E)' :  'linear-gradient(to right,#bffff4, #78cfb4)'}">
+      <p class="retour" style="font-size:3vw" (click)="goBack()">  &#8592;   Retour </p>
+  </div>
+   
+   
+    <div class="row justify-content-center ligne" style="height:70vh">
     
-      <div class="card singleElmt" >
-        <div *ngIf="isFavorite == 'true'">     <img src="../../../assets/heart.png" class="heartIcon"></div>
-          <h5 class="card-title titre" style="text-align: center"> {{alimentName}}</h5>
-          <hr>
-          <p class="card-text titre-saison"><b>-Pleine saison-   </b> </p><br> 
+     
+        <div *ngIf="isFavorite == 'true'">     
+          <img src="../../../assets/heart.png" (click)="deleteDesFavoris()" class="heartIcon">
+        </div>
+
+
+        <div *ngIf= " (isFavorite == undefined) || (isFavorite == 'false')">    
+           <img src="../../../assets/heartEmpty.png" (click)="addToFavoris(alimentName,alimentImgUrl)" class="heartEmpty">
+        </div>
+          <h5 class="titre col-12" style="text-align: center;  "> {{alimentName}}</h5>
+
+        
+
+          <div class="row" style="padding-bottom:0px; padding-top:0px; width:100vw">
+
+         <div class="col" style="padding-right:0px; padding-left:0px;">
+           <div class="crop">
+              <img class="card-img-top imageElmt" src="{{alimentImgUrl}}" alt="Card image cap">
+           </div>
+         
+
+         </div>
+         <div class="col"  style="   display: flex;
+         justify-content: center;
+         align-items: center;">
+          
+          <div class="infos" style=" margin-left: -26%;">
+          <p class="titre-saison"><b>-Pleine saison-   </b> </p><br> 
        
-          <div class="row line-months">
-            <div class="col-4 dateSaison" *ngFor="let date of alimentSaison">
+          <div class="row line-months"  style="text-align: center">
+            <div class="col-12 dateSaison" *ngFor="let date of alimentSaison">
                 {{date}}
               </div>
           </div>
-          <hr>
-          <div style="text-align: center; margin-top:20px">
-        
-          <!--<div class="arrow-down"></div> -->
-            <div class="row ligne">
-              <div class="col column" *ngFor="let item of calendarArray">
-                <ng-container *ngIf="item.value === true; else blabla" >
-                  <div class="moisVert">
-                    {{item.mois}}  
-                  </div>
-                </ng-container>
-    
-                <ng-template #blabla>
-                  <div class="moisRouge">
-                    {{item.mois}} 
-                  </div>
-                </ng-template>
-              </div>
-            </div>              
-          </div>
+       
+          
         <ng-container *ngIf="deSaison; else notFirst" >
             <div class="saison">
-                <p> C'est de saison !  </p>
+                <p style="margin-bottom: 0px"> <b> C'est de saison ! </b>  </p>
             </div>
             
           </ng-container>
           <ng-template #notFirst>
               <div class="pasDeSaison">
-                  <p> Ce n'est pas de saison...  </p>
+                  <p style="margin-bottom: 0px"> <b> Ce n'est pas de saison...  </b>  </p>
               </div>
           </ng-template>
-
-
+        </div>
+         </div>
         
       
+          
          <hr>
-    <img class="card-img-top imageElmt" src="{{alimentImgUrl}}" alt="Card image cap">
-    <div class="card-body">
+
+        </div>
+      
+         <hr>
+    
+    <!--<div class="card-body">
     <div *ngIf = " (isFavorite == undefined) || (isFavorite == 'false')">
           <button (click)="addToFavoris(alimentName,alimentImgUrl)" class="btn btn-success addToFavoris"> Ajouter aux favoris</button>
     </div>
       <div *ngIf = "isFavorite === 'true'">
           <button (click)="deleteDesFavoris()" class="btn btn-danger deleteDesFavoris"> Supprimer des favoris</button>
+      </div>      
+    </div> -->
+
+    <div style="text-align: center; margin-top:0px" class="col-12">
+      
+        <p style="margin-bottom:0px">Actuellement</p>
+        <p style="margin-top:0px;margin-bottom:0px">&darr;</p>
+      <!--<div class="arrow-down"></div> -->
+        <div class="row ligne">
+          <div class="col column" *ngFor="let item of calendarArray">
+            <ng-container *ngIf="item.value === true; else blabla" >
+              <div class="moisVert" [ngStyle]="{'border': getDate() === item.mois ? 'solid 2px red': 'solid 2px transparent' }">
+                {{item.mois}}  
+              </div>
+            </ng-container>
+
+            <ng-template #blabla>
+              <div class="moisRouge" [ngStyle]="{'border': getDate() === item.mois ? 'solid 2px green': 'solid 2px transparent' }">
+                {{item.mois}} 
+              </div>
+            </ng-template>
+          </div>
+        </div>              
       </div>
-      
-      
-     
-     
-      
-    </div>
-  </div>
+  
 
 </div>
