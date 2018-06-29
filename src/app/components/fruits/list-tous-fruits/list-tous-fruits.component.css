@@ -4,38 +4,37 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: "Amiko Regular";
+    src: url('/../../../assets/fonts/Amiko/Amiko-Regular.ttf');
+}
+
+
 .elmt2{
 
     margin-right: 20px; 
     margin-left: 20px; 
-    
-   
-   
 }
 
 .elmtSingle{
     margin-top: 15px;
     border: solid 0px;
     border-radius: 0px;
-    
+    padding-top:15px;
     border-radius: 10px;
 }
 
 .main{
-   
-   
     padding-top: 15px;
     padding-bottom: 80px;
     background-size: 100vw 99vh;
     background-attachment: fixed;
-
 }
 
 .main1{
-    
     margin-left: 17px;
     margin-right: 17px;
-    
 }
 
 .custom-btn{
@@ -54,18 +53,11 @@
     margin-right: 4px;
     text-align: center;
     margin-left: -5px;
-  
-    margin-bottom: 20px;
     border-radius: 0px;
     padding-top: 20px;
-    padding-bottom: 20px;
-
-  
-
 }
 
 .titre{
-    
     font-size: 5vw;
     margin-left: 10px;
     margin-top: 16px;
@@ -87,10 +79,6 @@
     /* border: solid; */
     border-radius:  10px 0px 0 10px;
     border: solid 1px #FF6B70;
-    
-
-   
-
 }
 
 .btn-saison{
@@ -104,13 +92,11 @@
     padding-bottom: 10px;
     /* border: solid; */
     border-color: darkgrey;
-    border-radius:  0px 10px 10px 0px
-  
-
+    border-radius:  0px 10px 10px 0px;
+    border-left: transparent;
 }
 
 .col-fruits{
-
     text-align: right;
     padding-right: 0px;
 }
@@ -118,7 +104,5 @@
 .col-saison{
     padding-left: 0px;
     text-align: left;
-    
-
 }
 

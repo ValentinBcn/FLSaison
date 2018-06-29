@@ -5,7 +5,7 @@
  
     <div class="row justify-content-center elmt2">
       <div *ngFor="let item of listeDeFavoris" style="text-align: center" class="col-6 elmt3">
-        <div class="card elmtSingle " style="border-radius: 15px;">
+        <div class="card elmtSingle ">
           <div (click)="onNavigate(item.adress)">
             <img class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap" style="width:70%">
           </div>
@@ -13,7 +13,7 @@
             <h5 class="card-title titre" style="font-size: 4vw" style="text-align: center"> {{item.nom}}</h5>
           </div>
 
-          <button class="btn btn-danger" (click)="deleteDesFavoris(item.nom)" style="font-size:3vw; border-radius: 0px 0px 15px 15px;"> Supprimer des favoris </button>
+          <button class="btn btn-danger" (click)="deleteDesFavoris(item.nom)" style="font-size:3vw; "> Supprimer des favoris </button>
         </div>
       </div>
     </div>

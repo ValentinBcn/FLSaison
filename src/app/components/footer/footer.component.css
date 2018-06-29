@@ -13,12 +13,7 @@
     height: 35px;
 }
 
-.custom-row{
 
-    padding-bottom: 25px;
-    height: 13vh;
-    padding-top: 11px;
-}
 
 .img-profil{
     margin-left: 80%;
@@ -27,7 +22,7 @@
     width:35px;
 }
 
-#data input[type="text"]{
+#data input[type="search"]{
     background: url('../../../assets/iconLoupe.png');
     background-size: 15px 15px;
     background-repeat: no-repeat;
@@ -47,7 +42,7 @@
     margin-right: 30px;
     margin-top:18px;
 }
-#data input[type="text"]:hover {
+#data input[type="search"]:hover {
     border-bottom: solid 2px white;
     width: 70%;
 }

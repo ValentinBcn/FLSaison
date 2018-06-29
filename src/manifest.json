@@ -9,12 +9,14 @@
     }],
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#EF5E60",
-  "theme_color": "#571845",
+  "background_color": "#333333",
+  "theme_color": "#333333",
   
   "gcm_sender_id": "482941778795",
   "gcm_sender_id_comment": "Do not change the GCM Sender ID"
-
+  
+  
+  
 }
 
 

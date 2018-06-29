@@ -24,6 +24,8 @@ export class HeaderComponent implements OnInit {
         $('.square3').css('display','');
         $('.square2').css('visibility','');
         $('.square2').css('display','block');
+        $('.square4').css('visibility','hidden');
+        $('.square4').css('display','');
       } 
       
       else if(e.url.indexOf('/research-page') > -1){
@@ -33,6 +35,8 @@ export class HeaderComponent implements OnInit {
         $('.square2').css('display','');
         $('.square1').css('visibility','hidden');
         $('.square1').css('display','');
+        $('.square4').css('visibility','hidden');
+        $('.square4').css('display','');
      }
 
 
@@ -43,6 +47,8 @@ export class HeaderComponent implements OnInit {
          $('.square2').css('display','');
          $('.square1').css('visibility','hidden');
          $('.square1').css('display','');
+         $('.square4').css('visibility','hidden');
+        $('.square4').css('display','');
       }
 
 
@@ -53,6 +59,19 @@ export class HeaderComponent implements OnInit {
         $('.square2').css('display','');
         $('.square3').css('visibility','hidden');
         $('.square3').css('display','');
+        $('.square4').css('visibility','hidden');
+        $('.square4').css('display','');
+      }
+
+      else if(e.url === '/mes-favoris'){
+        $('.square1').css('visibility','hidden');
+        $('.square1').css('display','');
+        $('.square2').css('visibility','hidden');
+        $('.square2').css('display','');
+        $('.square3').css('visibility','hidden');
+        $('.square3').css('display','');
+        $('.square4').css('visibility','');
+        $('.square4').css('display','block');
       }
   })}
     

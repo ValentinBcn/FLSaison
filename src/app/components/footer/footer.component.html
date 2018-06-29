@@ -1,15 +1,15 @@
 
-<div class="row custom-row">
+<div class="row justify-content-between">
        
-    <img src="../../../assets/logoHome.png" width="80px" height="55px" style="margin-left:35px" alt="" (click)="redirectToHome()">
+    <img class="col-4" src="../../../assets/logoHome.png" width="auto" height="55px" style="margin-left:35px" alt="" (click)="redirectToHome()">
 
-    <div class="col-1"></div>
+  
     <!--<div class="  col-4">
         <input type="text" name="search" placeholder="Rechercher des fruits, légumes..." id="barreDeRecherche" #request style="width:100%" (keyup.enter)="sendRequest(request.value)" class="recherche">
         
     </div> -->
-    <div class="col-7" id="data" >
-            <input type="text" name="search" placeholder="" class="inputField" #request (keyup.enter)="sendRequest(request.value)"> 
+    <div class="col-4" id="data" >
+            <input type="search" name="search" placeholder="" class="inputField" #request (keyup.enter)="sendRequest(request.value)"> 
         </div>
    
     
