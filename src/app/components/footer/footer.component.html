@@ -1,26 +1,14 @@
 
-<div class="row justify-content-between">
+<div class="row justify-content-between leFooter">
+    <div class="col-3" style="padding-left: 25px"> 
+        <img  src="../../../assets/logo.png" class="img-logo" alt="" (click)="redirectToHome()">  
+    </div>
+
+    <div class="col-4" style="padding-left:0px" (click)="redirectToHome()">
+        <p style="font-size: 16px"> Fruits et légumes </p>
+    </div>
        
-    <img class="col-4" src="../../../assets/logoHome.png" width="auto" height="55px" style="margin-left:35px" alt="" (click)="redirectToHome()">
-
-  
-    <!--<div class="  col-4">
-        <input type="text" name="search" placeholder="Rechercher des fruits, légumes..." id="barreDeRecherche" #request style="width:100%" (keyup.enter)="sendRequest(request.value)" class="recherche">
-        
-    </div> -->
-    <div class="col-4" id="data" >
-            <input type="search" name="search" placeholder="" class="inputField" #request (keyup.enter)="sendRequest(request.value)"> 
-        </div>
-   
-    
-  
-
-   <!-- <div class="col-3">
-        <img src="../../../assets/iconLogout.png" class="logoutIcon" (click)="onDeconnect()" alt="">
-        <p style="margin-left: -14px">Déconnexion</p>
-    </div> -->
-
-    
-
-
+    <div class="col-5" id="data" >
+        <input type="search" name="search" placeholder="" class="inputField" #request (keyup.enter)="sendRequest(request.value)"> 
+    </div>
 </div>

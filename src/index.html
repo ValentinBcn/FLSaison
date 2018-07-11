@@ -2,22 +2,28 @@
 <html lang="fr" style=" max-width: 100%; overflow-x: hidden;">
 
 <head>
-  <meta name="theme-color" content="#673ab7">
+  <meta name="theme-color" content="#ff9c00">
   <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-startup-image" href="./../apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="./apple-touh-icon.png">
   <meta name="apple-mobile-web-app-title" content="MCFruits">
   <meta charset="utf-8">
   <title>Fruits et Legumes</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="icon" type="image/x-icon" href="favicon2.ico"> 
-  
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "cf85e424-c36a-49e4-9f63-f42f960f72ce",
+    });
+  });
+</script>
 </head>
 
 <body  style=" max-width: 100%; overflow-x: hidden;">
   <noscript>Votre navigateur ne supporte pas Javascript ...</noscript>
   <app-root></app-root>
-
 </body>
-
 </html>

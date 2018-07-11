@@ -6,14 +6,17 @@
       "src": "assets/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },{
+      "src": "assets/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }],
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#333333",
-  "theme_color": "#333333",
+  "background_color": "#f7931e",
+  "theme_color": "#f7931e",
   
-  "gcm_sender_id": "482941778795",
-  "gcm_sender_id_comment": "Do not change the GCM Sender ID"
+  "gcm_sender_id": "103953800507"
   
   
   

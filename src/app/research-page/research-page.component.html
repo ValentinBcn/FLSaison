@@ -1,8 +1,11 @@
+<div class="elmt2">
+
+
 <h3 style="text-align: center; margin-top:10px">Resultat de recherche </h3>
 
-<div *ngIf="existence" class="row justify-content-center elmt2">
+<div *ngIf="existence" class="row justify-content-center">
   
-  <a [routerLink]=" [adress,objetRecherche.nom] ">
+  <a [routerLink]="[adress,objetRecherche.nom] ">
   
         <div class="card elmtSingle " style="margin-top: 50px" >
            
@@ -24,4 +27,4 @@
   <div *ngIf="!existence">
   
     Avez-vous effectué cette rechercher avec de bons termes ?
-</div>
+</div></div>

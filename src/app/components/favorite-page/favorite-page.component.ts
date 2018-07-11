@@ -30,15 +30,15 @@ export class FavoritePageComponent implements OnInit {
   localStorage.removeItem('rechercheObject')
     this.listeDeFavoris = [];
      for (var obj in localStorage) {
-      var temp = localStorage.getItem(obj)
-      if (localStorage.getItem(obj) != null && localStorage.getItem(obj).length != 0 && JSON.parse(localStorage.getItem(obj)).nom != undefined) {
-        let data = JSON.parse(localStorage.getItem(obj));
      
+      if( obj != "colorToDisplay" && obj!="onesignal-notification-prompt" &&
+      JSON.parse(localStorage.getItem(obj)) != null){
+        let data = JSON.parse(localStorage.getItem(obj))
         this.listeDeFavoris.push(new AlimentWithAdress(data.nom, data.image, data.adresse))
+        console.log("data",data)
       }
     }
-  
-  }
+}
 
   onNavigate(data: string){
     window.location.href = data;

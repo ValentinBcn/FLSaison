@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, NavigationStart} from '@angular/router';
+import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { alimentService } from '../../services/aliments.service';
 import { Http, Response } from '@angular/http';
 @Component({
@@ -21,19 +21,17 @@ export class SingleAlimentComponent implements OnInit {
   resultComparaison = [];
   toggle = false;
   laRoute: string;
-
   pageFruits: string;
   calendarArray = [];
-
-  isFavorite : string; 
+  isFavorite: string;
+  color: string;
 
   constructor(private route: ActivatedRoute, private api: alimentService, private http: Http, private router: Router) {
-     
-    //console.log("on a ", localStorage.getItem("Persil"))
-   
+
+
     var tableauFruits = [];
     var tableauLegume = [];
-    
+
 
     this.api.getInfoFruit().subscribe(
       (res1: Response) => {
@@ -43,21 +41,18 @@ export class SingleAlimentComponent implements OnInit {
             this.alimentImgUrl = this.api.seekAliment(this.route.snapshot.params['name'])[1]
             this.alimentSaison = this.api.seekAliment(this.route.snapshot.params['name'])[2]
 
-            var tempData = localStorage.getItem(this.alimentName );
-            if(tempData != null){
+            var tempData = localStorage.getItem(this.alimentName);
+            if (tempData != null) {
               this.isFavorite = JSON.parse(tempData).isFavorite;
             }
-            else if (tempData === undefined){
+            else if (tempData === undefined) {
               this.isFavorite = 'false';
             }
-
-            console.log("c'est en favoris", this.isFavorite)
             this.comparerDates(this.getDate(), this.alimentSaison)
             this.setRealDates();
-           
+
             this.setCalendarArray();
             this.comparaison();
-          
           }
         )
       }
@@ -65,40 +60,30 @@ export class SingleAlimentComponent implements OnInit {
     this.api.getDonnees().then(data => {
       this.variabel = data;
     })
-
     this.getDate();
-
   }
-  deleteDesFavoris(){
+
+  deleteDesFavoris() {
     this.isFavorite = 'false';
     var data = {}
-    localStorage.setItem(this.alimentName,JSON.stringify(data))
-
+    localStorage.setItem(this.alimentName, JSON.stringify(data))
   }
-  addToFavoris(nom: string, img: string){
+  addToFavoris(nom: string, img: string) {
     this.toggle = !this.toggle;
-    console.log('toggle',this.toggle)
     this.isFavorite = 'true';
+
     var data = {
-      'adresse' : window.location.href,
-      'image' : img,
-      'nom' : nom,
-      'isFavorite': 'true'  
+      'adresse': window.location.href,
+      'image': img,
+      'nom': nom,
+      'isFavorite': 'true'
     }
-
-    localStorage.setItem(this.alimentName,JSON.stringify(data))
-    
-    console.log( localStorage.getItem(this.alimentName))
+    localStorage.setItem(this.alimentName, JSON.stringify(data))
   }
-
-
 
   ngOnInit() {
-  //this.isFavorite = localStorage.getItem(this.alimentName);
-  
-  console.log(this.getDate())
-  console.log('pagefruits',this.pageFruits)
-  console.log("deesf",this.isAFruit())
+    this.color = localStorage.getItem('colorToDisplay');
+    this.color = '#' + this.color;
   };
 
   getDate() {
@@ -108,28 +93,28 @@ export class SingleAlimentComponent implements OnInit {
     this.month = tab_mois[ladate.getMonth()];
 
     return (tab_mois[ladate.getMonth()])
-  
+
   }
 
-  goBack(){
+  goBack() {
     window.history.back();
   }
-  
-  setCalendarArray(){
+
+  setCalendarArray() {
     var ladate = new Date();
     var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
     this.month = tab_mois[ladate.getMonth()];
-    for(var i=-1;i<2;i++){
-      this.calendarArray.push({mois:tab_mois[ladate.getMonth()+i], value:false})
+    for (var i = -1; i < 2; i++) {
+      this.calendarArray.push({ mois: tab_mois[ladate.getMonth() + i], value: false })
     }
   }
 
-  setRealDates(){
+  setRealDates() {
     var ladate = new Date()
     var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
-    for(let i=-1; i<2;i++){
+    for (let i = -1; i < 2; i++) {
       this.realsDates.push(tab_mois[ladate.getMonth() + i]);
-    }   
+    }
   }
 
   comparerDates(actuell: string, lesMois: string[]) {
@@ -144,38 +129,33 @@ export class SingleAlimentComponent implements OnInit {
     }
   }
 
-  comparaison(){
+  comparaison() {
     var ladate = new Date()
     var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
     //modifie le calendar array, si un mois du calendar Array est un mois de saison alors ce mois a une valeur=true
-    for(var u=0;u<this.calendarArray.length;u++){
-      for(var a=0;a<this.alimentSaison.length;a++){
-        if(this.alimentSaison[a] === this.calendarArray[u].mois){
+    for (var u = 0; u < this.calendarArray.length; u++) {
+      for (var a = 0; a < this.alimentSaison.length; a++) {
+        if (this.alimentSaison[a] === this.calendarArray[u].mois) {
           this.calendarArray[u].value = true;
         }
       }
     }
   }
 
-   
-    
-    isAFruit(){
-      var URL = window.location.href;
+  isAFruit() {
+    var URL = window.location.href;
 
-      if( URL.indexOf('fruit')>-1 ){
-        return true;
-      }
-      return false;
-    }
-
-    
-  
-
-  comparerDeuxMois(premiere:string,deuxieme:string){
-    if(premiere === deuxieme){
+    if (URL.indexOf('fruit') > -1) {
       return true;
     }
-    else{
+    return false;
+  }
+
+  comparerDeuxMois(premiere: string, deuxieme: string) {
+    if (premiere === deuxieme) {
+      return true;
+    }
+    else {
       return false;
     }
   }

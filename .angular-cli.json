@@ -11,7 +11,11 @@
         "assets",
         "favicon2.ico",
         "manifest.json",
-        ".htaccess"
+        ".htaccess",
+        "OneSignalSDKWorker.js",
+        "OneSignalSDKUpdaterWorker.js",
+        "apple-touch-icon.png"
+       
       ],
       "index": "index.html",
       "main": "main.ts",

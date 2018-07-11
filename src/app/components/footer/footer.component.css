@@ -1,6 +1,9 @@
 .row{
     padding-top: 15px;
-    background-color: #333333;
+    background: #ff9c00; /* Old browsers */
+    background: -moz-linear-gradient(left, #ff9c00 0%, #ffc53f 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #ff9c00 0%,#ffc53f 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #ff9c00 0%,#ffc53f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     color: white;
     font-size: 10px;
     padding-bottom: 13px;
@@ -37,7 +40,6 @@
     width:15px;
     -webkit-transition: width 1s ease-in-out;
     transition: width 1s ease-in-out;
-
     color:white;
     margin-right: 30px;
     margin-top:18px;
@@ -54,6 +56,9 @@
     height:25px;
 }
 
+.leFooter{
+    height: 78px;
+}
 
 .form{
     width:100%;
@@ -76,4 +81,8 @@ legumes{
     border-top: 0px;
     border-right: 0px;
     border-left: 0px;
+}
+
+.img-logo{
+    height: 100%;
 }

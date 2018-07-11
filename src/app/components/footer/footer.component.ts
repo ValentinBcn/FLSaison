@@ -31,18 +31,15 @@ export class FooterComponent implements OnInit {
   
   sendRequest(donnee){
 
-  if(this.route.snapshot['_routerState'].url === '/research-page'){
-     location.reload()
-    }
     var myObservable = Observable.of(donnee)
     
     myObservable.subscribe(res => {
       if(this.recherche.rechercheParmiLesAliments(res)!=undefined){
         this.data.globalData = this.recherche.rechercheParmiLesAliments(res)
- 
       }
       localStorage.setItem('rechercheObject',JSON.stringify(this.data.globalData))
     })
+    location.reload()
     this.router.navigate(['research-page'])
    
     this.data.changeSimpleVariable(donnee)

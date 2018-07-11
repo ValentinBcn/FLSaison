@@ -19,6 +19,8 @@ export class ListTousFruitsComponent implements OnInit {
   month: string;
   filteredStatus: string;
   pageFruits:boolean;
+  arrayColor = ["#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd","#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd"
+  ,"#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd", "#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd"]
   constructor(private apiConnect: alimentService, private router:Router) {
 
   }
@@ -27,10 +29,13 @@ export class ListTousFruitsComponent implements OnInit {
     this.onGetFruits();
     console.log('ok');
 }
-    
-  
+
+sendColor(color: string){
+  localStorage.setItem('colorToDisplay',color.toString().slice(1));
+}
 
   onGetFruits() {
+    console.log("je suis avant le subscribe");
     this.apiConnect.getInfoFruit()
       .subscribe(
         (res2: Response) => {
@@ -41,6 +46,7 @@ export class ListTousFruitsComponent implements OnInit {
           }
         }
       );
+      console.log("je suis après le subscribe");
       console.log( this.listeDeFruits)
   }
 

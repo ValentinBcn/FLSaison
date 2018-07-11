@@ -32,6 +32,11 @@
     src: url('/../../../assets/fonts/Amiko/Amiko-Regular.ttf');
 }
 
+@font-face {
+    font-family: "Casual Friday";
+    src: url('/../../../assets/fonts/Casual Friday/Casual Friday.ttf');
+}
+
 
 .main{
    /*background-image: linear-gradient(to right,#FFBFD1, #FF6A6E);*/
@@ -41,8 +46,8 @@
 }
 
 .imageElmt{
-    width: 33%;
-    margin-left: auto;
+    width: 300%;
+    margin-left: -100px;
     margin-right: auto;
     display: block;
 }
@@ -70,7 +75,7 @@
     color: white;
     text-align: center;
     font-size: 4vw;
-    border-radius:15px;
+  
     font-family: "Louis Georges Cafe"
 }
 
@@ -78,7 +83,7 @@
     background-color: #FE2E2E;
     color: white;
     font-size: 4vw;
-    border-radius:15px;
+  
     font-family: "Louis Georges Cafe"
 }
 
@@ -176,7 +181,7 @@
 /*//////////////////////////////////////*/
   .titre{
     margin-top:22px;
-    font-family: "Garamond";
+   
     font-size:8vw;
     margin-bottom:-20px;
     text-align: left;
@@ -201,3 +206,4 @@
     height: 290px;
     margin: -15px 0 0 -209px;
 }
+

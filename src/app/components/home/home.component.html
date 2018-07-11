@@ -1,20 +1,13 @@
-<div class="main"> 
-    <div class="two-images" >
-        <div class="fruits">
-                <a class="nav-link " style="padding: 0" [routerLink]="['/fruits-de-saison']" >
-                    <img id="image_fruits" src= "../../../assets/fruitsResize.png" style=" height:37%; width:auto;" alt="">
-                </a> 
-
-        </div> 
-
-        <div class="legumes">
-                <a class="nav-link "style="padding: 0" [routerLink]="['/legumes-de-saison']">
-                    <img src= "../../../assets/legumesresize.png" style=" height:37%;width:auto; top:50% " alt="">
-                 </a>
-        </div>
-    
+<div class="gradient-rouge"[routerLink]="['/fruits-de-saison']" >
+    <div class="img-fruits" >
+        <p class="text-fruits"> Voir les fruits de saison </p>
+        <img src="../../../assets/arrow_fruits.png" class="arrow-fruits" alt="">
     </div>
-
 </div>
-       
 
+<div class="gradient-vert"  [routerLink]="['/legumes-de-saison']">
+    <div class="img-legumes">
+        <p class="text-legumes"> Voir les legumes de saison </p>
+        <img src="../../../assets/arrow_legumes.png" class="arrow-legumes" alt="">
+    </div>
+</div>

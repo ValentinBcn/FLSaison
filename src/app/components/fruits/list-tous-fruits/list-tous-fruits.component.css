@@ -10,13 +10,15 @@
     src: url('/../../../assets/fonts/Amiko/Amiko-Regular.ttf');
 }
 
-
-.elmt2{
-
-    margin-right: 20px; 
-    margin-left: 20px; 
+@font-face {
+    font-family: "Casual Friday";
+    src: url('/../../../assets/fonts/Casual Friday/Casual Friday.ttf');
 }
 
+.alimentName{
+    color: #4e4d4d;
+    font-family: 'Casual Friday';
+}
 .elmtSingle{
     margin-top: 15px;
     border: solid 0px;
@@ -27,14 +29,9 @@
 
 .main{
     padding-top: 15px;
-    padding-bottom: 80px;
+    padding-bottom: 0px;
     background-size: 100vw 99vh;
     background-attachment: fixed;
-}
-
-.main1{
-    margin-left: 17px;
-    margin-right: 17px;
 }
 
 .custom-btn{
@@ -46,15 +43,6 @@
     margin-right: auto;
     display: block;
     font-size: 3vw;
-}
-
-
-.elmt3{
-    margin-right: 4px;
-    text-align: center;
-    margin-left: -5px;
-    border-radius: 0px;
-    padding-top: 20px;
 }
 
 .titre{
@@ -69,16 +57,16 @@
 
 .btn-fruits{
     text-align: center;
-    background-color: #FF6B70;
+    background-color: rgb(247, 147, 30);
     color: white;
     font-size: 3vw;
     padding-top: 10px;
     padding-left: 22px;
     padding-right: 22px;
     padding-bottom: 10px;
-    /* border: solid; */
-    border-radius:  10px 0px 0 10px;
-    border: solid 1px #FF6B70;
+    border-radius:  20px;
+    border: solid 1px rgb(247, 147, 30);
+    box-shadow: 1px 1px 5px #555;
 }
 
 .btn-saison{
@@ -90,19 +78,18 @@
     padding-left: 22px;
     padding-right: 22px;
     padding-bottom: 10px;
-    /* border: solid; */
     border-color: darkgrey;
-    border-radius:  0px 10px 10px 0px;
+    border-radius:  20px;
     border-left: transparent;
 }
 
 .col-fruits{
     text-align: right;
-    padding-right: 0px;
+    padding-right: 8px;
 }
 
 .col-saison{
-    padding-left: 0px;
+    padding-left: 8px;
     text-align: left;
 }
 

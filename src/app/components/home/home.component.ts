@@ -9,8 +9,6 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(document.getElementById("image_fruits").style.height)
-  }
+  ngOnInit() { }
 
 }

@@ -31,9 +31,9 @@ import { GlobaleVariablesService } from './services/globale-variables.service';
 import { alimentService } from './services/aliments.service';
 import { FavoritePageComponent } from './components/favorite-page/favorite-page.component';
 
-
-
-
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
 
 const appRoutes: Routes = [
   { path: 'fruits', component: ListTousFruitsComponent/*, canActivate: [authGuard] */},
