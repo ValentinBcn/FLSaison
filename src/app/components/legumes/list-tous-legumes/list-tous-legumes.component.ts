@@ -11,9 +11,11 @@ import { Legume } from '../../../models/singleAliment';
 })
 export class ListTousLegumesComponent implements OnInit {
   tableauDeBase = [];
-  listdeLegumes : Legume[] = [];
+  listdeLegumes: Legume[] = [];
   month: string;
-  tableauLegumeTrie : Legume[] = [];
+  tableauLegumeTrie: Legume[] = [];
+  arrayColor = ["#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+    , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"]
   constructor(private apiConnect: alimentService) { }
 
   ngOnInit() {
@@ -21,29 +23,28 @@ export class ListTousLegumesComponent implements OnInit {
     this.getInfosLegume();
   }
 
-  getInfosLegume(){
+  getInfosLegume() {
     this.apiConnect.getInfoLegume().subscribe(
-      (res: Response)=>{
+      (res: Response) => {
         this.tableauDeBase = res.json()
-        for(let i = 0; i<this.tableauDeBase.length;i++){
-          this.listdeLegumes.push(new Legume(this.tableauDeBase[i].title.rendered, this.tableauDeBase[i].acf.photo, this.tableauDeBase[i].acf.saison))       
+        for (let i = 0; i < this.tableauDeBase.length; i++) {
+          this.listdeLegumes.push(new Legume(this.tableauDeBase[i].title.rendered, this.tableauDeBase[i].acf.photo, this.tableauDeBase[i].acf.saison))
         }
       }
     )
   }
 
-  myFunction(value){
+  myFunction(value) {
     this.apiConnect.seekLegume(value);
-   }
+  }
 
-   
-  getDate(){
-    var ladate=new Date()
-    ladate.getMonth()+1
-    var tab_mois=new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
-    console.log("mois actuel",tab_mois[ladate.getMonth()] );
+
+  getDate() {
+    var ladate = new Date()
+    ladate.getMonth() + 1
+    var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
     this.month = tab_mois[ladate.getMonth()];
-    return( tab_mois[ladate.getMonth()])
+    return (tab_mois[ladate.getMonth()])
   }
 
 }

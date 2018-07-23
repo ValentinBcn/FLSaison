@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { authentificationService } from '../../services/authentification.service';
 import { PersistenceService } from 'angular-persistence';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
 import { GlobaleVariablesService } from '..//../services/globale-variables.service';
 import { alimentService } from '../../services/aliments.service';
 
@@ -19,6 +19,8 @@ export class FooterComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private auth: authentificationService, private data: GlobaleVariablesService, private recherche: alimentService) {
     
   }
+  ngOnInit() { }
+
   redirectToHome(){
     this.router.navigate([''])
   }
@@ -30,47 +32,30 @@ export class FooterComponent implements OnInit {
   
   
   sendRequest(donnee){
-
-    var myObservable = Observable.of(donnee)
-    
-    myObservable.subscribe(res => {
-      if(this.recherche.rechercheParmiLesAliments(res)!=undefined){
-        this.data.globalData = this.recherche.rechercheParmiLesAliments(res)
+    /** resout le problème de recherche sur IOS (normalement) */
+    if(this.route.snapshot['_routerState'].url === '/research-page'){
+      location.reload();
+    }
+    /** */
+    this.router.navigate(['research-page']);
+    if(this.recherche.rechercheParmiLesAliments(donnee)!=undefined){
+        this.data.globalData = this.recherche.rechercheParmiLesAliments(donnee)
       }
       localStorage.setItem('rechercheObject',JSON.stringify(this.data.globalData))
-    })
-    location.reload()
-    this.router.navigate(['research-page'])
    
-    this.data.changeSimpleVariable(donnee)
-  
-
+      
   }
 
   onFavoris(){
     this.favoris = [];
     for (var obj in window.localStorage){
-      if(window.localStorage.getItem(obj)=== "true")
-      this.favoris.push(obj)  
-      console.log('cest',this.favoris)
-    }
+      if(window.localStorage.getItem(obj)=== "true"){
+        this.favoris.push(obj) 
+      }
+    }    
+  }
 
-    
-  }
-  ngOnInit() {
-   
-    
-  }
   myFunction() {
-    console.log('my function')
     document.getElementById("myDropdown").classList.toggle("show");
-  }
-
-
-// Close the dropdown menu if the user clicks outside of it
-
-  
-
-
-  
+  } 
 }

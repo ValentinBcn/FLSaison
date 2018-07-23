@@ -15,8 +15,9 @@ export class FruitsDeSaisonComponent implements OnInit {
   tableaudebase = [];
   tableauTrie: Fruit[] = [];
   month: string;
-
-  constructor(private apiConnect: alimentService) {}
+  arrayColor = ["#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+    , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"]
+  constructor(private apiConnect: alimentService) { }
 
   ngOnInit() {
     this.getDate();

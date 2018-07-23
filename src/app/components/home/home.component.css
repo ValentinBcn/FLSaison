@@ -5,11 +5,11 @@
 
 @font-face {
     font-family: "Casual Friday";
-    src: url('/../../../assets/fonts/Casual Friday/Casual Friday.ttf');
+    src: url('/../../../assets/fonts/CasualFriday/Casual Friday.ttf');
 }
 
 .gradient-rouge{
-	height: 39vh;
+	height:35vh;
 	background: #ffbfbf; /* Old browsers */
 	background: -moz-linear-gradient(top, #ffbfbf 0%, #ff8d7f 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #ffbfbf 0%,#ff8d7f 100%); /* Chrome10-25,Safari5.1-6 */
@@ -17,7 +17,7 @@
 }
 
 .gradient-vert{
-	height: 39vh;
+	height:35vh;
 	background: #baff7f; /* Old browsers */
 	background: -moz-linear-gradient(top, #baff7f 0%, #7fffd2 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #baff7f 0%,#7fffd2 100%); /* Chrome10-25,Safari5.1-6 */
@@ -25,21 +25,21 @@
 }
 
 .img-fruits{
-	width: 100%;
-    height: 100%;
+	width: 125%;
+	height:100%;
 	background-image: url("../../../assets/homeFruits.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-position: bottom left;
+	background-position-y: bottom ;
 }
 
 .img-legumes{
-	width: 100%;
-	height: 100%;
+	width: 125%;
+	height:100%;
 	background-image: url("../../../assets/homeLegumes.png");
 	background-repeat: no-repeat;	
 	background-size: 100%;
-	background-position-y: 100%;
+	background-position-y: bottom ;
 }
 
 .text-fruits{

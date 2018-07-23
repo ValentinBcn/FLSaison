@@ -1,20 +1,14 @@
 .row{
     padding-top: 0px;
     background: #fff; /* Old browsers */
-   
-    height: 13vh;
-    
     bottom: 0;
     margin-left:0px;
     margin-right:0px;
     width: 100vw;
 }
-a{
-    color:white;
-}
 
 .leheader{
-    height: 11vh;
+    height: 15vh;
     position: fixed;
     bottom: 0;
     z-index:2;
@@ -69,25 +63,12 @@ a{
     position: relative;
 }
 
-.text-1{
+.text{
     position: absolute;
-    bottom: 13%;
-    left:31%;
-}
-.text-2{
-    position: absolute;
-    bottom: 13%;
-    left:37%;
+    bottom: 5%; 
 }
 
-.text-3{
-    position: absolute;
-    bottom: 13%;
-    left:28%;
-}
-
-.text-4{
-    position: absolute;
-    bottom: 13%;
-    left:18%;
-}
+.text-1{ left:31%; }
+.text-2{ left:37%; }
+.text-3{ left:28%; }
+.text-4{ left:18%; }

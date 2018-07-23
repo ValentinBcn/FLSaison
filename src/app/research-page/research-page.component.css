@@ -1,3 +1,45 @@
 .elmt2{
     height: 72vh;
 }
+
+@font-face {
+    font-family: "Casual Friday";
+    src: url('/../../../assets/fonts/CasualFriday/Casual Friday.ttf');
+}
+
+.alimentName{
+    font-family: "Casual Friday"
+}
+
+.title-research{
+    text-align: center;
+    font-family: "Casual Friday";
+    padding-top:30px;
+    padding-bottom: 25px;
+    font-size: 20px;
+    color: rgb(247, 147, 30);
+}
+
+.col-3{
+    display: flex; align-items: center; margin-left:0px
+}
+
+.col-6{
+    margin:auto; 
+    display: block;
+    border: solid 2px rgb(247, 147, 30); 
+    padding-bottom: 15px;
+    padding-top:15px; 
+    background-color: white;
+}
+
+.conteneur{
+    background-color: #FFF0E1; 
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
+
+.line{
+    width:100%; 
+    border-top: solid 2px rgb(247, 147, 30)
+}

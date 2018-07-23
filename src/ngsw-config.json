@@ -5,9 +5,9 @@
     "installMode": "prefetch",
     "resources": {
       "files": [
-        "/favicon.ico",
-        "/index.html",
-        "/assets/**" 
+        "/favicon2.ico",
+        "/index.html"
+    
       ],
       "versionedFiles": [
         "/*.bundle.css",
@@ -24,16 +24,18 @@
         "/assets/**"
       ]
     }
-  }],
+  }]
+  ,
+
   "dataGroups": [
   {
-    "name": "tasks-users-api",
-    "urls": ["https://pwa2.marge-labo.com/wp-json/wp/v2/fruit","https://pwa2.marge-labo.com/wp-json/wp/v2/legume"],
+    "name": "tasks-api",
+    "urls": ["https://pwa2.marge-labo.com/wp-json/wp/v2/fruit?per_page=50","https://pwa2.marge-labo.com/wp-json/wp/v2/legume?per_page=50"],
     "cacheConfig": {
       "strategy": "performance",
-      "maxSize": 20,
+      "maxSize": 200,
       "maxAge": "1h",
-      "timeout": "3s"
+      "timeout": "2s"
     }
   }
 ]

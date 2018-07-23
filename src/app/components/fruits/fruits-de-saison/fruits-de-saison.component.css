@@ -4,12 +4,21 @@
     font-weight: normal;
     font-style: normal;
 }
-.elmt2{
 
-    margin-right: 20px; 
-    margin-left: 20px; 
+@font-face {
+    font-family: "Amiko Regular";
+    src: url('/../../../assets/fonts/Amiko/Amiko-Regular.ttf');
 }
 
+@font-face {
+    font-family: "Casual Friday";
+    src: url('/../../../assets/fonts/CasualFriday/Casual Friday.ttf');
+}
+
+.alimentName{
+    color: #4e4d4d;
+    font-family: 'Casual Friday';
+}
 .elmtSingle{
     margin-top: 15px;
     border: solid 0px;
@@ -20,14 +29,9 @@
 
 .main{
     padding-top: 15px;
-    padding-bottom: 80px;
-    background-size: 100vw 99vh;
+    padding-bottom: 0px;
+    background-size: 100vw 100vh;
     background-attachment: fixed;
-}
-
-.main1{
-    margin-left: 17px;
-    margin-right: 17px;
 }
 
 .custom-btn{
@@ -41,15 +45,6 @@
     font-size: 3vw;
 }
 
-
-.elmt3{
-    margin-right: 4px;
-    text-align: center;
-    margin-left: -5px;
-    border-radius: 0px;
-    padding-top: 20px;
-}
-
 .titre{
     font-size: 5vw;
     margin-left: 10px;
@@ -59,43 +54,41 @@
     font-family: 'Garamond';
     color:darkslategray;
 }
-
-.btn-fruits{
+.btn-saison
+{
     text-align: center;
-    background-color: white;
-    color: Black;
-    font-size: 3vw;
-    padding-top: 10px;
-    padding-left: 22px;
-    padding-right: 22px;
-    padding-bottom: 10px;
-    /* border: solid; */
-    border-radius:  10px 0px 0 10px;
-    border: solid 1px darkgrey;
-    border-right: transparent;
-}
-
-.btn-saison{
-    text-align: center;
-    background-color: #FF6B70;
+    background-color: rgb(247, 147, 30);
     color: white;
     font-size: 3vw;
     padding-top: 10px;
     padding-left: 22px;
     padding-right: 22px;
     padding-bottom: 10px;
-    /* border: solid; */
-    border-color: #FF6B70;
-    border-radius:  0px 10px 10px 0px
+    border-radius:  20px;
+    border: solid 1px rgb(247, 147, 30);
+    box-shadow: 1px 1px 5px #555;
+}
+.btn-fruits
+{
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 3vw;
+    padding-top: 10px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: 10px;
+    border-color: darkgrey;
+    border-radius:  20px;
 }
 
 .col-fruits{
     text-align: right;
-    padding-right: 0px;
+    padding-right: 8px;
 }
 
 .col-saison{
-    padding-left: 0px;
+    padding-left: 8px;
     text-align: left;
 }
 

@@ -29,9 +29,6 @@ export class authentificationService{
     })
   }
   
-  test(){
-    console.log('service');
-}
-  
+
 
 }

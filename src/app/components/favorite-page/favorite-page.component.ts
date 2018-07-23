@@ -11,37 +11,39 @@ import { Route, Router } from '@angular/router';
 export class FavoritePageComponent implements OnInit {
   listeDeFavoris: AlimentWithAdress[] = []
 
-
-  constructor(private route: Router) {}
+  arrayColor = ["#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+    , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"]
+  constructor(private route: Router) { }
 
   deleteDesFavoris(infola) {
     var data = {}
+
     localStorage.removeItem(infola)
+
     for (var i = 0; i < this.listeDeFavoris.length; i++) {
       if (this.listeDeFavoris[i].nom === infola) {
-        var index = i
+        this.listeDeFavoris.splice(i, 1)
       }
     }
+  }
 
-    this.listeDeFavoris.splice(index, 1)
-
+  sendColor(color: string) {
+    localStorage.setItem('colorToDisplay', color.toString().slice(1));
   }
   ngOnInit() {
-  localStorage.removeItem('rechercheObject')
+    localStorage.removeItem('rechercheObject')
     this.listeDeFavoris = [];
-     for (var obj in localStorage) {
-     
-      if( obj != "colorToDisplay" && obj!="onesignal-notification-prompt" &&
-      JSON.parse(localStorage.getItem(obj)) != null){
+    for (var obj in localStorage) {
+
+      if (obj != "colorToDisplay" && obj != "onesignal-notification-prompt" &&
+        JSON.parse(localStorage.getItem(obj)) != null) {
         let data = JSON.parse(localStorage.getItem(obj))
         this.listeDeFavoris.push(new AlimentWithAdress(data.nom, data.image, data.adresse))
-        console.log("data",data)
       }
     }
-}
-
-  onNavigate(data: string){
+  }
+  onNavigate(data: string) {
     window.location.href = data;
-   }
+  }
 
 }

@@ -1,135 +1,88 @@
-<div class="main" style="background-color:white; padding-bottom: 0px">
-  <div [ngStyle]=" {'background-image': isAFruit() === true ? 
-  'linear-gradient(to right,#FFBFD1, #FF6A6E)' :  'linear-gradient(to right,#bffff4, #78cfb4)'}">
-    <div  style="margin-bottom: 0px; font-size: 3vh" [ngStyle]=" {'background-image': isAFruit() === true ? 
-      'linear-gradient(to right,#FFBFD1, #FF6A6E)' :  'linear-gradient(to right,#bffff4, #78cfb4)'}" role="alert">
-      <p  (click)="goBack()"> &#8592; Retour </p>
-    </div>
-   
+<div class="main" style="background-color:white; padding-bottom: 11vh">
+  <div class="bandeauRetour" [ngStyle]=" {'background-image': isAFruit()?
+       'linear-gradient(to right,#FF6A6E,#FFBFD1 )' :
+       'linear-gradient(to right,#78cfb4 , #bffff4)'}">
+    <p (click)="goBack()"> &#8592; Retour </p>
   </div>
 
-<div>
-  <div style="margin-top: 10px; padding-bottom:15px;
-  margin-right: 10px; margin-bottom:10px;     border-radius: 0px 55px 55px 0px; box-shadow: 1px 1px 12px rgb(185, 178, 178); " [ngStyle]="{ 'background-color': color}">
-<div style="padding-top: 25px; " > 
-  <hr style="border-top: solid 1px #ff9999">
 
-    <div *ngIf="isFavorite == 'true'" style="    position: relative;
-    margin-top: -38px;" >
-        <img src="../../../assets/heart.png"  (click)="deleteDesFavoris()" class="heartIcon" style="display:block; margin:auto; width: 14%; height: auto; ">
+  <div style="padding-bottom:4vh">
+    <div class="carte" [ngStyle]="{ 'background-color': color}">
+      <div style="padding-top: 25px; ">
+        <hr style="border-top: solid 1px #ff9999">
+        <div *ngIf="isFavorite == 'true'" style=" position: relative; margin-top: -38px;">
+          <img src="../../../assets/heart.png" (click)="deleteDesFavoris()" class="heartIcon">
+        </div>
+
+
+        <div *ngIf=" (isFavorite == undefined) || (isFavorite == 'false')" style="position: relative; margin-top: -38px;">
+          <img src="../../../assets/heartEmpty.png" (click)="addToFavoris(alimentName,alimentImgUrl)" class="heartEmpty">
+        </div>
+
       </div>
-  
-  
-      <div *ngIf=" (isFavorite == undefined) || (isFavorite == 'false')" style="position: relative;
-      margin-top: -38px;" >
-        <img src="../../../assets/heartEmpty.png"  (click)="addToFavoris(alimentName,alimentImgUrl)" class="heartEmpty"  style="display:block; margin:auto ; width: 14%; height: auto">
-      </div>
 
-</div>
-   
 
-   
-   <div class="row" style="margin-left:0px;margin-right:0px; padding-top:0px; padding-bottom:0px">
-      <div class="col-3" style="padding-left:0px;   display: flex;
-      align-items: center;
-      justify-content: center;">
-          <img src="{{alimentImgUrl}}" width="100%" alt="Card image cap" style="position: relative;     width: 400%;
-          margin-left: -120px;">
-      </div>
-          
-      <div class="col-9" style="padding-left:40px">
-          <h5 style="text-align: left; padding-top:40px; font-size:3rem; font-family: 'Casual Friday'"> {{alimentName | uppercase}}</h5>
 
-          <div >
-            
-           <div>
-              <img src="../../../assets/calendarLogo.png" alt="" width="10%" >
+      <div class="row">
+        <div class="col-3 container-img">
+          <img class="img-aliment" src="{{alimentImgUrl}}" alt="Card image cap">
+        </div>
+
+        <div class="col-9" style="padding-left:40px">
+          <h5 style="text-align: left; padding-top:40px; font-size:14vw; font-family: 'Casual Friday'"> {{alimentName | uppercase}}</h5>
+
+          <div>
+            <div>
+              <img src="../../../assets/calendarLogo.png" alt="" width="10%">
               <b style="vertical-align: bottom">-Pleine saison- </b>
-           </div>
-              
-          
-    
-            <div class="row" style="padding-top:0px; padding-bottom:0px; margin-left: 0px">
-              <div  *ngFor="let date of alimentSaison">
-                <i> {{date}},    </i> &nbsp; 
+            </div>
+
+            <div class="row">
+              <div *ngFor="let date of alimentSaison">
+                <i> {{date}}, </i> &nbsp;
               </div>
             </div>
-              
-        
-    
-    
+
             <ng-container *ngIf="deSaison; else notFirst">
-              <div class="saison">
-                  <p style="margin-bottom: 0px">
-                      <span style="color:green"> C'EST DE SAISON </span>
-                    </p>
-                    <div style="text-align: left">
-                        <img src="../../../assets/arrow_season.png" alt="" width="25%">
-                    </div>
-              </div>
-    
-            </ng-container>
-            <ng-template #notFirst>
-              <div class="pasDeSaison">
+              <div class="saison" style="margin-left:-40px">
                 <p style="margin-bottom: 0px">
-                  <span style="color:red; font-family: 'Casual Friday'"> PAS DE SAISON </span>
+                  <span style="color:rgb(94, 186, 139);  font-family: 'Casual Friday'; margin-left:-40px"> C'EST DE SAISON </span>
                 </p>
                 <div style="text-align: left">
-                    <img src="../../../assets/arrow_not_season.png" alt="" width="25%">
+                  <img src="../../../assets/arrow_season.png" alt="" width="25%">
                 </div>
-             
+              </div>
+
+            </ng-container>
+            <ng-template #notFirst>
+              <div class="pasDeSaison" style="margin-left:-40px">
+                <p style="margin-bottom: 0px">
+                  <span style="color:#C1272D; font-family: 'Casual Friday'; margin-left:-40px"> PAS DE SAISON </span>
+                </p>
+                <div style="text-align: left">
+                  <img src="../../../assets/arrow_not_season.png" alt="" width="25%">
+                </div>
+
               </div>
             </ng-template>
           </div>
-          
-    <div style="text-align: center; margin-top:20px" class="col-12">
-      <div class="row ligne" style="vertical-align: center">
-        <div class="col column" style="padding-right:0px; padding-left:0px; "*ngFor="let item of calendarArray; let i=index">
-          <ng-container *ngIf="item.value === true; else blabla">
-            <div class="moisVert" 
-              [ngStyle]="{'height': i === 1 ? '25px': '15px', 
-                          'margin-top': i!=1? '2px': '-3px', 
-                          'position':i === 1 ? 'absolute' : 'relative', 
-                          'z-index':  i === 1 ? '1' :'0',
-                          'width': i === 1 ? '100%' : 'auto',
-                          'font-size': i ===1? '5vw' : '3vw'
-                         }"
-              style="box-shadow: rgb(152, 152, 152) 1px 0px 2px;vertical-align: middle; ">
-              {{item.mois}}
-             
-            </div>
-          </ng-container>
-
-          <ng-template #blabla>
-            <div class="moisRouge"
-            [ngStyle]="{'height': i === 1 ? '25px': '15px', 
-            'margin-top': i!=1? '2px': '-3px', 
-            'position':i === 1 ? 'absolute' : 'relative', 
-            'z-index':  i === 1 ? '1' :'0',
-            'width': i === 1 ? '100%' : 'auto',
-            'font-size': i ===1? '5vw' : '3vw' }"
-            style="box-shadow: rgb(152, 152, 152) 1px 0px 2px; vertical-align: middle; ">
-            
-             {{item.mois}}
-             
-              
-            </div>
-          </ng-template>
         </div>
       </div>
-    </div>  
+      <div style="text-align: center; margin-top:20px">
+        <div class="row ligne">
+          <div class="col-4 column" *ngFor="let item of calendarArray; let i=index">
+            <ng-container *ngIf="item.value === true; else blabla">
+              <img src="../../../assets/arrowGreen.png" width="100%" alt="">
+              <p [ngStyle]="{'font-weight': i === 1 ? 'bold': ''}" style="color:#5EBA8B"> {{item.mois}} </p>
+            </ng-container>
+            <ng-template #blabla>
+              <img src="../../../assets/arrowRed.png" width="100%" alt="">
 
-
+              <p [ngStyle]="{'font-weight': i === 1 ? 'bold': ''}" style="color:#C1272D"> {{item.mois}} </p>
+            </ng-template>
+          </div>
+        </div>
       </div>
+    </div>
 
-     
-      
-
-
-   </div>
-        
-  
-
-
-
-  </div></div>
+  </div>

@@ -13,7 +13,7 @@
     }],
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#f7931e",
+  "background_color": "#FFECD4",
   "theme_color": "#f7931e",
   
   "gcm_sender_id": "103953800507"

@@ -1,14 +1,14 @@
 
 <div class="row justify-content-between leFooter">
-    <div class="col-3" style="padding-left: 25px"> 
-        <img  src="../../../assets/logo.png" class="img-logo" alt="" (click)="redirectToHome()">  
+    <div class="col-3" style="padding-left: 25px; display: flex!important; align-items: center!important"> 
+        <img  src="../../../assets/logo.png" class="img-logo" alt="" width="auto" height="50px"(click)="redirectToHome()">  
     </div>
 
-    <div class="col-4" style="padding-left:0px" (click)="redirectToHome()">
-        <p style="font-size: 16px"> Fruits et légumes </p>
+    <div class="col-4" style="padding-left:0px ; display: flex; align-items: center; margin-top:15px" (click)="redirectToHome()">
+        <p  style="font-size: 16px; margin-top: 0;" class="title"> Fruits et légumes </p>
     </div>
        
-    <div class="col-5" id="data" >
+    <div class="col-5" id="data" style="display: flex; align-items: center;  justify-content: flex-end;" >
         <input type="search" name="search" placeholder="" class="inputField" #request (keyup.enter)="sendRequest(request.value)"> 
     </div>
 </div>

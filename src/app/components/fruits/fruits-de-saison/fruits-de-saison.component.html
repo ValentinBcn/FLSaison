@@ -1,31 +1,32 @@
-<!-- <div class="main" style="background-image: linear-gradient(to right,#FFBFD1, #FF6A6E);"> -->
-    <div class="main">
-
-        <div class="row">
-          <div class="col col-fruits ">
-            <a class="nav-link" [routerLink]="['/fruits']" style="padding-right:0px">
-              <button style="text-align:center" class="btn btn-primary btn-fruits"> Tous les fruits </button>
-            </a>
-          </div>
-      
-          <div class="col col-saison">
-            <a class="nav-link" [routerLink]="['/fruits-de-saison']" style="padding-left:0px">
-              <button style="text-align:center" class="btn btn-primary btn-saison"> Fruits de saison </button>
-            </a>
-          </div>
-        </div>
-      
-        <div class="main1">
-          <div class="row justify-content-center elmt2">
-            <div *ngFor="let fruit of tableauTrie" style="text-align: center" class="col-6 elmt3">
-              <div class="card elmtSingle ">
-                <a [routerLink]=" ['/fruits',fruit.nom] ">
-                  <img src="{{fruit.imageUrl}}" alt="Card image cap" style="width:90%">
-                  <h5 class="card-title titre"> {{fruit.nom }}</h5>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      
+<div class="main">
+  <div class="container-fluid">
+  </div>
+    <div class="row" style="margin-bottom:25px">
+      <div class="col col-fruits ">
+          <button style="text-align:center" class="btn btn-primary btn-fruits" [routerLink]="['/fruits']"> Tous les fruits </button>
       </div>
+      <div class="col col-saison">
+          <button style="text-align:center" class="btn btn-primary btn-saison" [routerLink]="['/fruits-de-saison']"> Fruits de saison </button>
+      </div>
+    </div>
+
+  <div class="container"  style="padding-bottom:11vh;">
+    <div class="row">
+        <div *ngFor="let fruit of tableauTrie ; let i = index" style="text-align: center;" [ngStyle]="{'background-color': arrayColor[i]}" class="col-6 col-md-2 elmt3">
+          <div class="card" style="border: 0px;" [ngStyle]="{'background-color': arrayColor[i]}">
+            <a [routerLink]=" ['/fruits',fruit.nom] " (click)="sendColor(arrayColor[i])">
+              <img src="{{fruit.imageUrl}}" alt="Card image cap" style="width:90%; " [ngStyle]="{'background-color': arrayColor[i]}">
+              <div>
+                <div style="display: inline-block" class="alimentName">
+                  {{fruit.nom }}
+                </div>
+                <div style="display: inline-block">
+                  <img src="../../../../assets/arrow_draw.png" alt="" width="40px" height="auto" style="padding-bottom: 25px;">
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,21 +1,35 @@
 <div *ngIf = "listeDeFavoris.length!=0">
 
 
-<div class="main">
- 
-    <div class="row justify-content-center elmt2">
-      <div *ngFor="let item of listeDeFavoris" style="text-align: center" class="col-6 elmt3">
-        <div class="card elmtSingle ">
-          <div (click)="onNavigate(item.adress)">
-            <img class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap" style="width:70%">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title titre" style="font-size: 4vw" style="text-align: center"> {{item.nom}}</h5>
-          </div>
+  <div class="main">
 
-          <button class="btn btn-danger" (click)="deleteDesFavoris(item.nom)" style="font-size:3vw; "> Supprimer des favoris </button>
+ 
+  
+    <div class="container"  style="padding-bottom:11vh;">
+      <div class="row">
+        <div style="text-align: center; width:100%; padding-bottom: 15px; padding-top: 15px; color: rgb(247, 147, 30); font-family: 'Casual Friday'; font-size:25px">
+           - Mes Favoris -
         </div>
-      </div>
+       
+          <div *ngFor="let item of listeDeFavoris ; let i = index" style="text-align: center; padding-left:5px; padding-right:5px; padding-bottom:10px" [ngStyle]="{'background-color': arrayColor[i]}" class="col-6 col-md-2 elmt3">
+            <div class="card" style="border: 0px;" [ngStyle]="{'background-color': arrayColor[i]}">
+              <a (click)="sendColor(arrayColor[i]); onNavigate(item.adress)">
+                <img src="{{item.imageUrl}}" alt="Card image cap" style="width:90%; " [ngStyle]="{'background-color': arrayColor[i]}">
+                <div>
+                  <div style="display: inline-block" class="alimentName">
+                    {{item.nom }}
+                  </div>
+                  <div style="display: inline-block">
+                    <img src="../../../../assets/arrow_draw.png" alt="" width="40px" height="auto" style="padding-bottom: 25px;">
+                  </div>
+                </div>
+              </a>
+          
+            </div>
+            <button class="button-delete" 
+             (click)="deleteDesFavoris(item.nom)"> Supprimer des favoris  </button>
+          </div>
+        </div>
     </div>
   </div>
 
@@ -23,8 +37,11 @@
 
 <div *ngIf= "listeDeFavoris.length===0">
   
-  <div class="main">
-      <h3> Aucun fruits ou légumes en favoris ... </h3>
+  <div class="main" style="text-align: center;  background-color: rgb(249, 247, 247); height:70vh">
+      
+      <img src="../../../assets/NoResult.png" width="60%" alt="">
+      <h3> <b>  Aucun fruit(s) ou légume(s) en favoris ... </b> </h3>
+      <h6 style="color: grey; margin-top:15px">  Vous pouvez ajouter des fruits ou légumes en cliquant sur le coeur d'une page d'un fruit ou d'un légume. </h6>
   </div>
 
 </div>

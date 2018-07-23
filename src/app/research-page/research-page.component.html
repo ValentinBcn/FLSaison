@@ -1,30 +1,38 @@
-<div class="elmt2">
+<div style="background-color:#F9F7F7; height: 72vh">
 
+  <div *ngIf="existence">
 
-<h3 style="text-align: center; margin-top:10px">Resultat de recherche </h3>
+    <div class="title-research">
+      Resultat de recherche
+    </div>
 
-<div *ngIf="existence" class="row justify-content-center">
-  
-  <a [routerLink]="[adress,objetRecherche.nom] ">
-  
-        <div class="card elmtSingle " style="margin-top: 50px" >
-           
-            <img class="card-img-top" src="{{objetRecherche.imageUrl}}" alt="Card image cap" style="width:70%">
-    
-            <div class="card-body">
-             <h5 class="card-title titre" style="font-size: 4vw" style="text-align: left"> {{objetRecherche.nom}}</h5>
-          
+    <div class="row">
+      <div class="col-3" style="padding-right:0px;">
+        <hr class="line">
+      </div>
+      <div class="col-6">
+        <div [routerLink]="[adress,objetRecherche.nom]" class="conteneur">
+          <div style="display: inline-block" class="alimentName">
+            {{objetRecherche.nom}}
           </div>
+          <div style="display: inline-block">
+            <img src="../../../../assets/arrow_research.png" alt="" width="25px" height="auto" style="padding-top: 30px;">
+          </div>
+          <img src="{{objetRecherche.imageUrl}}" width="70%" alt="">
         </div>
-        </a>
-   
-      
-      
- 
+
+      </div>
+
+      <div class="col-3" style=" padding-left:0px;">
+        <hr class="line"> 
+      </div>
+    </div>
   </div>
 
+  <div *ngIf="!existence" style="text-align: center;">
+    <img src="../../../assets/NoResult.png" width="60%" alt="">
+      <h3> <b> Aucun résultat ... </b> </h3>
+      <h6 style="color: grey; margin-top:15px">  Avez-vous effectué votre recherche avec de bon(s) terme(s) ? </h6>
+  </div>
 
-  <div *ngIf="!existence">
-  
-    Avez-vous effectué cette rechercher avec de bons termes ?
-</div></div>
+</div>

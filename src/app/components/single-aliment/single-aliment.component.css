@@ -1,6 +1,8 @@
 .row{
-    padding-top:50px;
-    padding-bottom:85px;
+    margin-left:0px;
+    margin-right:0px;
+    padding-top:0px;
+    padding-bottom:0px;
 }
 
 .singleElmt{
@@ -34,13 +36,11 @@
 
 @font-face {
     font-family: "Casual Friday";
-    src: url('/../../../assets/fonts/Casual Friday/Casual Friday.ttf');
+    src: url('/../../../assets/fonts/CasualFriday/Casual Friday.ttf');
 }
 
 
 .main{
-   /*background-image: linear-gradient(to right,#FFBFD1, #FF6A6E);*/
-
     padding-top: 0px;
     padding-bottom: 60px;
 }
@@ -88,12 +88,13 @@
 }
 
 .column{
-    margin-left: -10px;
-    margin-right: -10px;
+
+    padding-right:0px;
+    padding-left:0px; 
 }
 
 .ligne{
-  
+    vertical-align: center;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 2px;
@@ -151,21 +152,24 @@
   }
 
   .heartIcon{
-    height: 25px;
-    width: 25px;
-
     z-index: 10;
     margin-top: 22px;
     margin-left: 23px;
+    display:block; 
+    margin:auto; 
+    width: 14%; 
+    height: auto;
   }
 
   .heartEmpty{
-    height: 25px;
-    width: 25px;
-
     z-index: 10;
     margin-top: 22px;
     margin-left: 23px;
+
+    display:block; 
+    margin:auto ; 
+    width: 14%;
+     height: auto;
   }
 
   .retour{
@@ -207,3 +211,33 @@
     margin: -15px 0 0 -209px;
 }
 
+.bandeauRetour{
+    margin-bottom: 0px; 
+    font-size: 15px; 
+    color: white;
+    height: 30px;
+    padding-top: 3px;
+}
+
+.img-aliment{
+    position: relative;   
+    width: 400%;
+    margin-left: -120px;
+    filter: drop-shadow(2px 2px 2px grey);
+}
+
+.carte{
+    margin-top: 10px;
+    padding-bottom:15px;
+    margin-right: 10px;
+    margin-bottom:10px; 
+    border-radius: 0px 55px 55px 0px;
+    box-shadow: 1px 1px 12px rgb(185, 178, 178);
+}
+
+.container-img{
+    padding-left:0px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -13,7 +13,7 @@ export class SingleAlimentComponent implements OnInit {
   alimentName: string;
   alimentSaison: string[];
   alimentImgUrl: string;
-  public variabel;
+
   month: string;
   tableauDeValeur = [];
   deSaison: boolean;
@@ -27,46 +27,12 @@ export class SingleAlimentComponent implements OnInit {
   color: string;
 
   constructor(private route: ActivatedRoute, private api: alimentService, private http: Http, private router: Router) {
-
-
-    var tableauFruits = [];
-    var tableauLegume = [];
-
-
-    this.api.getInfoFruit().subscribe(
-      (res1: Response) => {
-        this.api.getInfoLegume().subscribe(
-          (res2: Response) => {
-            this.alimentName = this.api.seekAliment(this.route.snapshot.params['name'])[0]
-            this.alimentImgUrl = this.api.seekAliment(this.route.snapshot.params['name'])[1]
-            this.alimentSaison = this.api.seekAliment(this.route.snapshot.params['name'])[2]
-
-            var tempData = localStorage.getItem(this.alimentName);
-            if (tempData != null) {
-              this.isFavorite = JSON.parse(tempData).isFavorite;
-            }
-            else if (tempData === undefined) {
-              this.isFavorite = 'false';
-            }
-            this.comparerDates(this.getDate(), this.alimentSaison)
-            this.setRealDates();
-
-            this.setCalendarArray();
-            this.comparaison();
-          }
-        )
-      }
-    )
-    this.api.getDonnees().then(data => {
-      this.variabel = data;
-    })
-    this.getDate();
   }
 
   deleteDesFavoris() {
     this.isFavorite = 'false';
     var data = {}
-    localStorage.setItem(this.alimentName, JSON.stringify(data))
+    localStorage.removeItem(this.alimentName)
   }
   addToFavoris(nom: string, img: string) {
     this.toggle = !this.toggle;
@@ -78,10 +44,38 @@ export class SingleAlimentComponent implements OnInit {
       'nom': nom,
       'isFavorite': 'true'
     }
-    localStorage.setItem(this.alimentName, JSON.stringify(data))
+    localStorage.setItem(this.alimentName,JSON.stringify(data))
   }
 
   ngOnInit() {
+    var tableauFruits = [];
+    var tableauLegume = [];
+
+    this.api.getInfoFruit().subscribe(
+      (res1: Response) => {
+        this.api.getInfoLegume().subscribe(
+          (res2: Response) => {
+            this.alimentName = this.api.seekAliment(this.route.snapshot.params['name'])[0]
+            this.alimentImgUrl = this.api.seekAliment(this.route.snapshot.params['name'])[1]
+            this.alimentSaison = this.api.seekAliment(this.route.snapshot.params['name'])[2]
+            this.comparerDates(this.getDate(), this.alimentSaison)
+            var tempData = localStorage.getItem(this.alimentName);
+            if (tempData != null) {
+              this.isFavorite = JSON.parse(tempData).isFavorite;
+            }
+            else if (tempData === undefined) {
+              this.isFavorite = 'false';
+            }
+           
+            this.setRealDates();
+            this.setCalendarArray();
+            this.comparaison(); //fonction qui voit si c'est un fruit/légume de saison
+          }
+        )
+      }
+    )
+    
+    this.getDate();
     this.color = localStorage.getItem('colorToDisplay');
     this.color = '#' + this.color;
   };
@@ -93,7 +87,6 @@ export class SingleAlimentComponent implements OnInit {
     this.month = tab_mois[ladate.getMonth()];
 
     return (tab_mois[ladate.getMonth()])
-
   }
 
   goBack() {

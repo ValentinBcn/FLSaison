@@ -6,6 +6,8 @@ import { Response } from '@angular/http';
 import { ActivatedRoute, Route, Router, NavigationEnd, ActivationEnd, ActivationStart } from '@angular/router';
 import { SingleAlimentComponent } from '../components/single-aliment/single-aliment.component';
 import { Observable } from 'rxjs/Observable'
+import { NavigationStart } from '@angular/router';
+
 @Component({
   selector: 'research-favorite-page',
   templateUrl: './research-page.component.html',
@@ -16,39 +18,34 @@ export class ResearchPageComponent implements OnInit {
   objetRecherche: AlimentWithAdressAndType;
   existence: boolean;
   adress: string;
-  constructor() { 
-  
-   
-  }
+  constructor() {}
 
   ngOnInit() {
-    
+   
+
     this.objetRecherche = new AlimentWithAdressAndType('','','','')
     this.existence = false;
 
     if(localStorage.getItem('rechercheObject') !== 'undefined'){
-    console.log('hello', JSON.parse(localStorage.getItem('rechercheObject')))
+    
+      
     this.existence = true;
     
     var monObjet = JSON.parse(localStorage.getItem('rechercheObject'))
     
-    if(monObjet.type === 'fruit'){
-      this.adress = '/fruits'
-    }
-    else if  (monObjet.type === 'legumes') {
-      console.log('LEGUMES')
-      this.adress = '/legumes'
-    }
+      if(monObjet.type === 'fruit'){
+        this.adress = '/fruits'
+      }
 
+      else if  (monObjet.type === 'legumes') {
+        this.adress = '/legumes'
+      }
 
     this.objetRecherche = new AlimentWithAdressAndType(monObjet.title.rendered,monObjet.acf.photo,monObjet.title.rendered,this.adress)
-    console.log('resresrs',this.objetRecherche)
-    console.log(this.adress)
-    
+    }
   }
-}
 
-  }
+}
 
 
    

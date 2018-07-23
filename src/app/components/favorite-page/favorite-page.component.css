@@ -5,15 +5,6 @@
     font-style: normal;
 }
 
-
-.main{
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top:40px;
-
-    
-}
-
 @font-face {
     font-family: "Louis Georges Cafe";
     src: url('/../../../assets/fonts/LouisGeorgesCafe/Louis George Cafe.ttf');
@@ -21,15 +12,108 @@
     font-style: normal;
   }
 
-  .titre {
+@font-face {
+    font-family: "Amiko Regular";
+    src: url('/../../../assets/fonts/Amiko/Amiko-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Casual Friday";
+    src: url('/../../../assets/fonts/CasualFriday/Casual Friday.ttf');
+}
+
+
+.main{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top:0px;
+    padding-bottom: 11vh;
+
+    
+}
+.button-delete{
+    width:100%;
+    border: 0;
+    color: rgb(73, 80, 80); 
+    background-color:#fbfbfb; 
+    font-size: 3vw;
+    padding-top:10px; 
+    padding-bottom:10px;
+    box-shadow: 1px 1px 12px #cfcfcf;
+    font-family: "Louis Georges Cafe";
+    border-radius: 25px;
+}
+
+
+.alimentName{
+    color: #4e4d4d;
+    font-family: 'Casual Friday';
+}
+.elmtSingle{
+    margin-top: 15px;
+    border: solid 0px;
+    border-radius: 0px;
+    padding-top:15px;
+    border-radius: 10px;
+}
+
+
+
+.custom-btn{
+    background-color:white;
+    color: black;
+    border-radius:10px;
+    border: 1px solid grey;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 3vw;
+}
+
+.titre{
+    font-size: 5vw;
+    margin-left: 10px;
+    margin-top: 16px;
+    margin-bottom:5px;
+    text-align: center; 
     font-family: 'Garamond';
-  }
+    color:darkslategray;
+}
 
-  .elmtSingle{
-      border: transparent;
-      margin-bottom:45px;
-  }
+.btn-items{
+    text-align: center;
+    background-color: rgb(247, 147, 30);
+    color: white;
+    font-size: 3vw;
+    padding-top: 10px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: 10px;
+    border-radius:  20px;
+    border: solid 1px rgb(247, 147, 30);
+    box-shadow: 1px 1px 5px #555;
+}
 
-  .card-body{
-      padding: 0;
-  }
+.btn-saison{
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 3vw;
+    padding-top: 10px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: 10px;
+    border-color: darkgrey;
+    border-radius:  20px;
+}
+
+.col-items{
+    text-align: right;
+    padding-right: 8px;
+}
+
+.col-saison{
+    padding-left: 8px;
+    text-align: left;
+}
+

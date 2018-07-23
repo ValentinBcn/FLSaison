@@ -18,41 +18,36 @@ export class ListTousFruitsComponent implements OnInit {
   tableauTrie: Fruit[] = [];
   month: string;
   filteredStatus: string;
-  pageFruits:boolean;
-  arrayColor = ["#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd","#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd"
-  ,"#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd", "#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd"]
-  constructor(private apiConnect: alimentService, private router:Router) {
+  pageFruits: boolean;
+  arrayColor = ["#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+    , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"]
+  constructor(private apiConnect: alimentService, private router: Router) {
 
   }
 
   ngOnInit() {
     this.onGetFruits();
-    console.log('ok');
-}
+  }
 
-sendColor(color: string){
-  localStorage.setItem('colorToDisplay',color.toString().slice(1));
-}
+  sendColor(color: string) {
+    localStorage.setItem('colorToDisplay', color.toString().slice(1));
+  }
 
   onGetFruits() {
-    console.log("je suis avant le subscribe");
     this.apiConnect.getInfoFruit()
       .subscribe(
         (res2: Response) => {
           this.tableaudebase = res2.json();
-          
+
           for (let i = 0; i < this.tableaudebase.length; i++) {
             this.listeDeFruits.push(new Fruit(this.tableaudebase[i].title.rendered, this.tableaudebase[i].acf.photo, this.tableaudebase[i].acf.saison))
           }
         }
       );
-      console.log("je suis après le subscribe");
-      console.log( this.listeDeFruits)
   }
 
   myFunction(value) {
     this.apiConnect.seekFruit(value);
-    
   }
 
 }

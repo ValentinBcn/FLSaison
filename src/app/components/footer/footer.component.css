@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "Montserrat Bold";
+    src: url('/../../../assets/fonts/Montserrat/Montserrat-Regular.ttf');
+
+}
+
+
 .row{
     padding-top: 15px;
     background: #ff9c00; /* Old browsers */
@@ -42,7 +49,7 @@
     transition: width 1s ease-in-out;
     color:white;
     margin-right: 30px;
-    margin-top:18px;
+   
 }
 #data input[type="search"]:hover {
     border-bottom: solid 2px white;
@@ -57,7 +64,7 @@
 }
 
 .leFooter{
-    height: 78px;
+    height: 15vh;
 }
 
 .form{
@@ -83,6 +90,7 @@ legumes{
     border-left: 0px;
 }
 
-.img-logo{
-    height: 100%;
+.title{
+    font-size: 16px;
+    font-family: 'Montserrat Bold'
 }

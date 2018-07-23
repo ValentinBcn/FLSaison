@@ -16,9 +16,9 @@ export class alimentService {
 
   resultatDeRecherche : AlimentWithAdress;
   cestUnFruit: boolean;
-  tempName: string = "nothing";
-  tempImgUrl: string = "yay";
-  tempMonths: string[] = ["no months"];
+  tempName: string = '';
+  tempImgUrl: string = '';
+  tempMonths: string[] = [];
 
   constructor(private http: Http, private otherService: GlobaleVariablesService, private route: ActivatedRoute) {
    
@@ -49,7 +49,6 @@ export class alimentService {
   }
   seekFruit(name: string) {
     for (var i = 0; i < this.dataFruits.length; i++) {
-      console.log(this.dataFruits[i].title.rendered);
       if (this.dataFruits[i].title.rendered === name) {
         return i;
       }
@@ -90,7 +89,6 @@ export class alimentService {
     var valuetemp = value.charAt(0).toUpperCase() + value.slice(1) 
     var value4 = valuetemp.slice(0,-1)
   
-    console.log(value,value2,value3,value4)
 
     for (let i=0; i<totalArray.length;i++){
       
@@ -99,7 +97,7 @@ export class alimentService {
         totalArray[i].title.rendered === value3 ||
         totalArray[i].title.rendered === value4 ){
         this.resultatDeRecherche = new AlimentWithAdressAndType(value,totalArray[i].acf.photo,value,totalArray[i].type)
-        console.log(totalArray[i])
+
         return totalArray[i]
       }
     }
@@ -115,8 +113,7 @@ export class alimentService {
     var temp2 = nom.slice(0,nom.length-1);
     var temp3 = temp2[0].toUpperCase() + nom.slice(1);
     temp3 = temp3.slice(0,nom.length-1)
-    
-    console.log("temp3",temp3)
+
     for (var u = 0; u < tabGene.length; u++) {
      
       if (tabGene[u].title.rendered === nom || tabGene[u].title.rendered === temp || tabGene[u].title.rendered === temp2 || tabGene[u].title.rendered === temp3) {
