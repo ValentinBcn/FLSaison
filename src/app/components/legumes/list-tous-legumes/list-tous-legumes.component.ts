@@ -15,6 +15,8 @@ export class ListTousLegumesComponent implements OnInit {
   month: string;
   tableauLegumeTrie: Legume[] = [];
   arrayColor = ["#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+    , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+    , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
     , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"]
   constructor(private apiConnect: alimentService) { }
 
@@ -47,4 +49,7 @@ export class ListTousLegumesComponent implements OnInit {
     return (tab_mois[ladate.getMonth()])
   }
 
+  sendColor(color: string) {
+    localStorage.setItem('colorToDisplay', color.toString().slice(1));
+  }
 }

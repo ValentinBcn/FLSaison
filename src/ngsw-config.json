@@ -24,7 +24,18 @@
         "/assets/**"
       ]
     }
-  }]
+  }, {
+    "name": "fonts",
+    "installMode": "prefetch",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/fonts/**"
+      ]
+    }
+  }
+
+]
   ,
 
   "dataGroups": [

@@ -4,9 +4,9 @@ import { Response } from '@angular/http';
 import { Fruit } from '../../../models/singleAliment';
 
 @Component({
-  selector: 'app-fruits-de-saison',
-  templateUrl: './fruits-de-saison.component.html',
-  styleUrls: ['./fruits-de-saison.component.css']
+  selector: 'app-Fruits-de-saison',
+  templateUrl: './Fruits-de-saison.component.html',
+  styleUrls: ['./Fruits-de-saison.component.css']
 })
 export class FruitsDeSaisonComponent implements OnInit {
 
@@ -16,8 +16,10 @@ export class FruitsDeSaisonComponent implements OnInit {
   tableauTrie: Fruit[] = [];
   month: string;
   arrayColor = ["#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
-    , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"]
-  constructor(private apiConnect: alimentService) { }
+  , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+  , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+  , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"]
+  constructor(private apiConnect: alimentService) {}
 
   ngOnInit() {
     this.getDate();
@@ -40,11 +42,13 @@ export class FruitsDeSaisonComponent implements OnInit {
         }
       );
   }
-
+  
   myFunction(value) {
     this.apiConnect.seekFruit(value);
   }
-
+  sendColor(color: string) {
+    localStorage.setItem('colorToDisplay', color.toString().slice(1));
+  }
   getDate() {
     var ladate = new Date()
     ladate.getMonth() + 1
@@ -52,5 +56,4 @@ export class FruitsDeSaisonComponent implements OnInit {
     this.month = tab_mois[ladate.getMonth()];
     return (tab_mois[ladate.getMonth()])
   }
-
 }

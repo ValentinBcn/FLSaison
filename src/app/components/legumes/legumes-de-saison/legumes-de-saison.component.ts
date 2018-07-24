@@ -15,8 +15,10 @@ export class legumesDeSaisonComponent implements OnInit {
   tableaudebase = [];
   tableauTrie: Legume[] = [];
   month: string;
-  arrayColor = ["#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd","#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd"
-  ,"#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd", "#ffe0e0","#ffefdd","#f3ffff","#ebf2e2","#fdfbe9","#f9e6fd"]
+  arrayColor = ["#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+  , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+  , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"
+  , "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd", "#ffe0e0", "#ffefdd", "#f3ffff", "#ebf2e2", "#fdfbe9", "#f9e6fd"]
   constructor(private apiConnect: alimentService) {}
 
   ngOnInit() {
@@ -44,7 +46,9 @@ export class legumesDeSaisonComponent implements OnInit {
   myFunction(value) {
     this.apiConnect.seekLegume(value);
   }
-
+  sendColor(color: string) {
+    localStorage.setItem('colorToDisplay', color.toString().slice(1));
+  }
   getDate() {
     var ladate = new Date()
     ladate.getMonth() + 1

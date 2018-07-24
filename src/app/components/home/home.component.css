@@ -9,7 +9,7 @@
 }
 
 .gradient-rouge{
-	height:35vh;
+	height:40vh;
 	background: #ffbfbf; /* Old browsers */
 	background: -moz-linear-gradient(top, #ffbfbf 0%, #ff8d7f 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #ffbfbf 0%,#ff8d7f 100%); /* Chrome10-25,Safari5.1-6 */
@@ -17,7 +17,7 @@
 }
 
 .gradient-vert{
-	height:35vh;
+	height:40vh;
 	background: #baff7f; /* Old browsers */
 	background: -moz-linear-gradient(top, #baff7f 0%, #7fffd2 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #baff7f 0%,#7fffd2 100%); /* Chrome10-25,Safari5.1-6 */

@@ -16,7 +16,7 @@ export class SingleAlimentComponent implements OnInit {
 
   month: string;
   tableauDeValeur = [];
-  deSaison: boolean;
+  deSaison: string;
   realsDates = [];
   resultComparaison = [];
   toggle = false;
@@ -44,10 +44,11 @@ export class SingleAlimentComponent implements OnInit {
       'nom': nom,
       'isFavorite': 'true'
     }
-    localStorage.setItem(this.alimentName,JSON.stringify(data))
+    localStorage.setItem(this.alimentName, JSON.stringify(data))
   }
 
   ngOnInit() {
+
     var tableauFruits = [];
     var tableauLegume = [];
 
@@ -58,7 +59,9 @@ export class SingleAlimentComponent implements OnInit {
             this.alimentName = this.api.seekAliment(this.route.snapshot.params['name'])[0]
             this.alimentImgUrl = this.api.seekAliment(this.route.snapshot.params['name'])[1]
             this.alimentSaison = this.api.seekAliment(this.route.snapshot.params['name'])[2]
+            
             this.comparerDates(this.getDate(), this.alimentSaison)
+           
             var tempData = localStorage.getItem(this.alimentName);
             if (tempData != null) {
               this.isFavorite = JSON.parse(tempData).isFavorite;
@@ -66,7 +69,7 @@ export class SingleAlimentComponent implements OnInit {
             else if (tempData === undefined) {
               this.isFavorite = 'false';
             }
-           
+
             this.setRealDates();
             this.setCalendarArray();
             this.comparaison(); //fonction qui voit si c'est un fruit/légume de saison
@@ -74,7 +77,7 @@ export class SingleAlimentComponent implements OnInit {
         )
       }
     )
-    
+
     this.getDate();
     this.color = localStorage.getItem('colorToDisplay');
     this.color = '#' + this.color;
@@ -110,16 +113,12 @@ export class SingleAlimentComponent implements OnInit {
     }
   }
 
-  comparerDates(actuell: string, lesMois: string[]) {
-    for (let u = 0; u < lesMois.length; u++) {
-      if (actuell === lesMois[u]) {
-        this.deSaison = true;
-        break;
-      }
-      else {
-        this.deSaison = false;
-      }
+  comparerDates(moisActuel: string, lesMois: string[]) {
+    if(lesMois.indexOf(moisActuel)>-1){
+      this.deSaison = "true";
     }
+    else{this.deSaison = "false"}
+  
   }
 
   comparaison() {
@@ -137,19 +136,11 @@ export class SingleAlimentComponent implements OnInit {
 
   isAFruit() {
     var URL = window.location.href;
-
     if (URL.indexOf('fruit') > -1) {
       return true;
     }
     return false;
   }
 
-  comparerDeuxMois(premiere: string, deuxieme: string) {
-    if (premiere === deuxieme) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+
 }
