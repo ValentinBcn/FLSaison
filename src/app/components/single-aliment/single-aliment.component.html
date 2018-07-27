@@ -9,13 +9,13 @@
   <div style="padding-bottom:4vh">
     <div class="carte" [ngStyle]="{ 'background-color': color}">
       <div style="padding-top: 25px; ">
-        <hr style="border-top: solid 1px #ff9999">
-        <div *ngIf="isFavorite == 'true'" style=" position: relative; margin-top: -38px;">
+        <hr style="border-top: solid 1px #ff9999" class="trans-grow">
+        <div *ngIf="(isFavorite == 'true') && (pageChargee) " style=" position: relative; margin-top: -38px;">
           <img src="../../../assets/heart.png" (click)="deleteDesFavoris()" class="heartIcon">
         </div>
 
 
-        <div *ngIf=" (isFavorite == undefined) || (isFavorite == 'false')" style="position: relative; margin-top: -38px;">
+        <div *ngIf=" ((isFavorite == undefined) || (isFavorite == 'false')) && (pageChargee) " style="position: relative; margin-top: -38px;">
           <img src="../../../assets/heartEmpty.png" (click)="addToFavoris(alimentName,alimentImgUrl)" class="heartEmpty">
         </div>
 

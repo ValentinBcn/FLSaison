@@ -241,3 +241,13 @@
     align-items: center;
     justify-content: center;
 }
+
+.trans-grow{
+    -webkit-transition: width 1s ease-out; /* For Safari 3.1 to 6.0 */
+    transition: width 1s  ease-out;
+    width : 0%;
+}
+
+.grow{
+    width:100%;
+  }

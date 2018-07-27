@@ -15,7 +15,26 @@ export class FooterComponent implements OnInit {
   username: string
   objectRequest: string;
   favoris = [];
-  
+  isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (this.isMobile.Android() || this.isMobile.BlackBerry() || this.isMobile.iOS() || this.isMobile.Opera() || this.isMobile.Windows());
+    }
+};
   constructor(private route: ActivatedRoute, private router: Router, private auth: authentificationService, private data: GlobaleVariablesService, private recherche: alimentService) {
     
   }
@@ -33,18 +52,26 @@ export class FooterComponent implements OnInit {
   
   sendRequest(donnee){
     /** resout le problème de recherche sur IOS (normalement) */
-    if(this.route.snapshot['_routerState'].url === '/research-page'){
+ 
+    if(this.route.snapshot['_routerState'].url === '/research-page' && this.isMobile.iOS()){
       location.reload();
     }
+   
     /** */
-    this.router.navigate(['research-page']);
+
+    this.router.navigate(['research-page']).then(()=>{
+     
+      location.reload();
+     
+    });
+
     if(this.recherche.rechercheParmiLesAliments(donnee)!=undefined){
         this.data.globalData = this.recherche.rechercheParmiLesAliments(donnee)
       }
       localStorage.setItem('rechercheObject',JSON.stringify(this.data.globalData))
    
       
-  }
+    }
 
   onFavoris(){
     this.favoris = [];

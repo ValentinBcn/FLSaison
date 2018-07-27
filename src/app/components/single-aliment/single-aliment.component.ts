@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { alimentService } from '../../services/aliments.service';
 import { Http, Response } from '@angular/http';
+import * as $ from 'jquery';
+import { $$ } from 'protractor';
 @Component({
   selector: 'app-single-aliment',
   templateUrl: './single-aliment.component.html',
@@ -26,6 +28,7 @@ export class SingleAlimentComponent implements OnInit {
   isFavorite: string;
   color: string;
 
+  pageChargee: boolean = false;
   constructor(private route: ActivatedRoute, private api: alimentService, private http: Http, private router: Router) {
   }
 
@@ -73,6 +76,8 @@ export class SingleAlimentComponent implements OnInit {
             this.setRealDates();
             this.setCalendarArray();
             this.comparaison(); //fonction qui voit si c'est un fruit/légume de saison
+            this.pageChargee = true;
+            console.log('pageChargée,'+this.pageChargee)
           }
         )
       }
@@ -81,6 +86,11 @@ export class SingleAlimentComponent implements OnInit {
     this.getDate();
     this.color = localStorage.getItem('colorToDisplay');
     this.color = '#' + this.color;
+    $(document).ready(function($){
+      setTimeout(function(){
+          $('.trans-grow').addClass('grow');
+      }, 600);
+  });
   };
 
   getDate() {

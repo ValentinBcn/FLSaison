@@ -38,7 +38,11 @@ export class FavoritePageComponent implements OnInit {
       if (obj != "colorToDisplay" && obj != "onesignal-notification-prompt" &&
         JSON.parse(localStorage.getItem(obj)) != null) {
         let data = JSON.parse(localStorage.getItem(obj))
-        this.listeDeFavoris.push(new AlimentWithAdress(data.nom, data.image, data.adresse))
+        if(data.image === undefined){return false}
+        else{
+          this.listeDeFavoris.push(new AlimentWithAdress(data.nom, data.image, data.adresse))
+        }
+       
       }
     }
   }
